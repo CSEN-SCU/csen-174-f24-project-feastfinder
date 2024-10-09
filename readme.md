@@ -9,6 +9,7 @@
 
 ## Ideal struct of database: (Note: try to keep db as flat as possible)
 
+`<pre>
 FeastFinderdb
       |--- Users
             |- rand id
@@ -24,29 +25,30 @@ FeastFinderdb
                   |- ...
       |--- cache of resturant?
       |--- ??
-
+</pre>`
 
 ## Useful git command
 
-`git add *` or `git add .` &rarr; add all files to staging area
-    `git status` &rarr; check all files and see which are added to staging area and which arent
-`git commit -m "commit message"` &rarr; move staging area files to commit
-    `git log` &rarr; see history of all commits on branch
+- `git add *` or `git add .` &rarr; add all files to staging area
+    - `git status` &rarr; check all files and see which are added to staging area and which arent
 
- `git remote add origin https://github.com/CSEN-SCU/csen-174-f24-project-feastfinder.git` &rarr; adds remote git repo
-    `git remote` &rarr; check remote connections
-    `git remote -v` &rarr; see remote connections and links
+- `git commit -m "commit message"` &rarr; move staging area files to commit
+    - `git log` &rarr; see history of all commits on branch
 
-`git checkout -b <branch name>` &rarr; create new branch and set curr branch to new one
-    `git branch` &rarr; see all branches
-    `git branch -vv` &rarr; see branches and last commit message
+ - `git remote add origin https://github.com/CSEN-SCU/csen-174-f24-project-feastfinder.git` &rarr; adds remote git repo
+    - `git remote` &rarr; check remote connections
+    - `git remote -v` &rarr; see remote connections and links
 
-`git push <remote> <branch name>` &rarr; push commits to remote git repo
+- `git checkout -b <branch name>` &rarr; create new branch and set curr branch to new one
+    - `git branch` &rarr; see all branches
+    - `git branch -vv` &rarr; see branches and last commit message
+
+- `git push <remote> <branch name>` &rarr; push commits to remote git repo
 
 
 ## database info 
 
-link to database console: [here] (https://console.firebase.google.com/u/3/project/csen174-feastfinder/database/csen174-feastfinder-default-rtdb/data)
+- link to database console: [here](https://console.firebase.google.com/u/3/project/csen174-feastfinder/database/csen174-feastfinder-default-rtdb/data)
 
 - Note: database log in with dthuita2002 gmail account
 
