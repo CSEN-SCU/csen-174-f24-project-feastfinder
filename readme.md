@@ -1,18 +1,13 @@
 
-run node with [node <filename>.js]
-npm package express helps with server http stuff?
-nodemon for keeping server running?
+## GOALS:
 
-
-GOALS: 
 1. connect server to firebase
-    a. connect to database -> read data / write data [X]
-    b. google sign in 
+    - connect to database -> read data / write data [X]
+    - google sign in 
 2. connect server to socket.io???
 3. connect server to api request to yelp??
 
-
-ideal struct of database: (*try to keep db as flat as possible)
+## Ideal struct of database: (Note: try to keep db as flat as possible)
 
 FeastFinderdb
       |--- Users
@@ -31,19 +26,32 @@ FeastFinderdb
       |--- ??
 
 
-Useful git command
+## Useful git command
 
-git add * [or] git add . -> add all files to staging area
-    git status -> check all files and see which are added to staging area and which arent
-git commit -m "commit message" -> move staging area files to commit
-    git log -> see history of all commits on branch
+`git add *` or `git add .` &rarr; add all files to staging area
+    `git status` &rarr; check all files and see which are added to staging area and which arent
+`git commit -m "commit message"` &rarr; move staging area files to commit
+    `git log` &rarr; see history of all commits on branch
 
- git remote add origin https://github.com/CSEN-SCU/csen-174-f24-project-feastfinder.git -> adds remote git repo
-    git remote -> check remote connections
-    git remote -v -> see remote connections and links
+ `git remote add origin https://github.com/CSEN-SCU/csen-174-f24-project-feastfinder.git` &rarr; adds remote git repo
+    `git remote` &rarr; check remote connections
+    `git remote -v` &rarr; see remote connections and links
 
-git checkout -b <branch name> -> create new branch and set curr branch to new one
-    git branch -> see all branches
-    git branch -vv -> see branches and last commit message
+`git checkout -b <branch name>` &rarr; create new branch and set curr branch to new one
+    `git branch` &rarr; see all branches
+    `git branch -vv` &rarr; see branches and last commit message
 
-git push <remote> <branch name> -> push commits to remote git repo
+`git push <remote> <branch name>` &rarr; push commits to remote git repo
+
+
+## database info 
+
+link to database console: [here] (https://console.firebase.google.com/u/3/project/csen174-feastfinder/database/csen174-feastfinder-default-rtdb/data)
+
+- Note: database log in with dthuita2002 gmail account
+
+## Server addons?
+
+- run node with `node <filename>.js`
+- npm package express helps with server http stuff?
+- nodemon for keeping server running?
