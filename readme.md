@@ -33,3 +33,17 @@ FeastFinderdb
 
 Useful git command
 
+git add * [or] git add . -> add all files to staging area
+    git status -> check all files and see which are added to staging area and which arent
+git commit -m "commit message" -> move staging area files to commit
+    git log -> see history of all commits on branch
+
+ git remote add origin https://github.com/CSEN-SCU/csen-174-f24-project-feastfinder.git -> adds remote git repo
+    git remote -> check remote connections
+    git remote -v -> see remote connections and links
+
+git checkout -b <branch name> -> create new branch and set curr branch to new one
+    git branch -> see all branches
+    git branch -vv -> see branches and last commit message
+
+git push <remote> <branch name> -> push commits to remote git repo
