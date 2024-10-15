@@ -9,7 +9,7 @@
 
 ## Ideal struct of database: (Note: try to keep db as flat as possible)
 
-`<pre>
+```
 FeastFinderdb
       |--- Users
             |- rand id
@@ -25,7 +25,8 @@ FeastFinderdb
                   |- ...
       |--- cache of resturant?
       |--- ??
-</pre>`
+
+```
 
 ## Useful git command
 
