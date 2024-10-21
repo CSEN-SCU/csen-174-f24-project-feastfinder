@@ -11,7 +11,7 @@ app.use(express.json());
 
 //firebase vars -> connected to dthuita2002@gmail.com firebase account
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithCredential } from "firebase/auth";
 import { getDatabase, ref, onValue, get, set, child, update, push } from "firebase/database";
 
 const firebaseConfig = {
@@ -25,6 +25,7 @@ const firebaseConfig = {
 };
 const fb = initializeApp(firebaseConfig);
 const auth = getAuth(fb);
+const provider = new GoogleAuthProvider();
 const db = getDatabase(fb);
 
 /********************* GET ROUTES *********************/
@@ -105,6 +106,51 @@ app.post('/groups', async(req, res) => {
     res.status(200).send("db groups updated");
 })
 
+// Google login route
+app.post('/login/google', async (req, res) => {
+    try {
+        const { idToken } = req.body; // Get ID token from client
+
+        // Sign in using the ID token
+        const credential = GoogleAuthProvider.credential(idToken);
+        const userCredential = await signInWithCredential(auth, credential);
+        const user = userCredential.user;
+
+        // Check if the user exists, otherwise create a new entry
+        const userRef = ref(db, `Users/${user.uid}`);
+        const snapshot = await get(userRef);
+
+        if (!snapshot.exists()) {
+            await update(ref(db), {
+                [`/Users/${user.uid}`]: {
+                    name: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    uid: user.uid
+                }
+            });
+        }
+
+        res.status(200).json({
+            message: "User signed in successfully",
+            user: userCredential.user
+        });
+    } catch (error) {
+        console.error("Login failed", error);
+        res.status(500).json({ error: "Login failed" });
+    }
+});
+
+// Check if user is logged in
+app.get('/auth/status', (req, res) => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            res.status(200).json({ loggedIn: true, user });
+        } else {
+            res.status(401).json({ loggedIn: false });
+        }
+    });
+});
 
 // //see if user is logged in or not
 // onAuthStateChanged(auth, user => {
