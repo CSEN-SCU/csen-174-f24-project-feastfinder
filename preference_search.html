@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkbox List</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif; /* Basic font styling */
+            max-width: 600px; /* Set a max width for the container */
+            margin: 0 auto; /* Center the container on the page */
+            padding: 20px; /* Add padding around the container */
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+          }
+      
+          .checkbox-group {
+            margin-bottom: 15px; /* Space between checkbox groups */
+          }
+      
+          label {
+            display: flex; /* Use flexbox for better alignment */
+            align-items: center; /* Center vertically */
+            cursor: pointer; /* Change cursor to pointer on hover */
+          }
+      
+          input[type="checkbox"] {
+            margin-right: 10px; /* Space between checkbox and text */
+          }
+      
+          button {
+            margin-top: 20px; /* Space above the button */
+            padding: 10px 20px; /* Padding inside the button */
+            background-color: #007bff; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners for the button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+          }
+      
+          button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Restaurant Preferences</h1>
+        <div id="checkbox-container">
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="mexican" value="Mexican"> Mexican
+            </label>
+          </div>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="french" value="French"> French
+            </label>
+          </div>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="korean" value="Korean"> Korean
+            </label>
+          </div>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="italian" value="Italian"> Italian
+            </label>
+          </div>
+        </div>
+        
+        <script>
+          function checkBox(){
+              const checkboxes = document.querySelectorAll('input[type="checkbox"]'); // Select all checkboxes
+              const checkedOptions = []; // Array to store checked options
+      
+              // Loop through checkboxes to check which ones are checked
+              checkboxes.forEach((checkbox) => {
+                  if (checkbox.checked) {
+                  checkedOptions.push(checkbox.name); // Push the value of checked checkbox to the array
+                  }
+              });
+      
+              // Log the selected options to the console
+              console.log("Checked options:", checkedOptions);
+      
+            return checkedOptions; // return selected options
+              }      
+        </script>
+      </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetching Restaurants</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr; /* One column layout for each image-description pair */
+      gap: 10px; /* Space between image-description pairs */
+      max-width: 600px; /* Set a max width for the container */
+      margin: 1 auto; /* Align container to left */
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* Two columns for image and text */
+      gap: 10px; /* Space between image and text */
+      align-items: center; /* Vertically center the items */
+      text-decoration: none; /* Remove underline from links */
+      color: inherit; /* Inherit text color from parent */
+      border: 1px solid transparent; /* Optional: add a border to the item */
+      transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+    .item:hover {
+      background-color: #f0f0f0; /* Change background color on hover */
+      border-color: #ccc; /* Change border color on hover */
+    }
+
+    img {
+      max-width: 100%; /* Set image width to 100% of its container */
+      height: auto; /* Maintain aspect ratio */
+      margin: 0; /* Remove any default margins */
+      padding: 0; /* Remove any default padding */
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column; /* Stack text vertically */
+    }
+
+    p {
+      margin: 0; /* Remove any default margins for the text */
+      padding: 0; /* Remove any default padding */
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="image-container"></div>
+  <button id="fetch-image-button">Fetch Restaurants</button>
+
+  <script>
+    function fetchImages() {
+        const preferences = checkBox();
+      const myHeaders = new Headers();
+      myHeaders.append("Authorization", "Bearer RGxdnvLXFikrmFpSs4xuATbHE60_lOLi78ed7IP_Z2SFF_oJjkHG7BgSg215dOnw5Q4eAwzn59OqX1XQWEGc3UaHc7f5oAp0-2XIOAJFaUDinRRiIFc0wxfaHXkFZ3Yx");
+
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+      };
+      category = "categories=";
+      console.log(preferences)
+      for (i = 0; i < preferences.length; i++){
+        category += preferences[i] + "%2C"
+      }
+
+      fetch("https://api.yelp.com/v3/businesses/search?" + category + "sort_by=best_match&limit=20&location=San+Jose", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          const container = document.getElementById("image-container");
+          container.innerHTML = ''; // Clear any previous images and text
+          
+          // Loop through each business and create an image element with text
+          data.businesses.forEach(business => {
+            const imageUrl = business.image_url; // Get the image URL from each business
+            const businessUrl = business.url; // Get the business URL from the API
+            const imageElement = document.createElement("img");
+            imageElement.src = imageUrl;
+
+            // Create a container for text elements
+            const textContainer = document.createElement("div");
+            textContainer.classList.add("text-container");
+
+            const nameElement = document.createElement("p");
+            nameElement.textContent = business.name; // Business name
+
+            const price = document.createElement("p")
+            price.textContent = "Price: " + business.price
+
+            const location = document.createElement("p")
+            location.textContent = "Address: " + business.location.address1
+
+            const rating = document.createElement("p")
+            rating.textContent = "Rating: " + business.rating
+
+
+            // Append name and additional info to the text container
+            textContainer.appendChild(nameElement);
+            textContainer.appendChild(price);
+            textContainer.appendChild(location);
+            textContainer.appendChild(rating);
+
+            // Create a div to hold the image and text
+            const itemContainer = document.createElement("a"); // Use <a> for clickable container
+            itemContainer.classList.add("item"); // Add a class for styling
+            itemContainer.href = businessUrl; // Set the URL to navigate to
+            itemContainer.target = "_blank"; // Open in a new tab
+
+            // Append image and text container to the item container
+            itemContainer.appendChild(imageElement);
+            itemContainer.appendChild(textContainer);
+            
+            // Append the item container to the main container
+            container.appendChild(itemContainer);
+          });
+        })
+        .catch((error) => console.error(error));
+    }
+
+    const button = document.getElementById("fetch-image-button");
+    button.addEventListener("click", fetchImages);
+  </script>
+</body>
+</html>
