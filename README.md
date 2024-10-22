@@ -4,6 +4,9 @@
 This is a simple test program that shows how the search results might look with the ability to select specific preferences.
 The preferences ideally would be in a list that the user can select before looking at restaurants so that the API request can use the preferences as parameters.
 
+### Testing
+Open file in VScode, make sure the Live Server extension is installed, then right-click and say "Open Server". This will open it locally on your default browser.
+
 ### Features
 * Currently, the program uses HTML, CSS, and JavaScript to function.
 * The page first displays checkboxes with restaurant categories that the user can select
