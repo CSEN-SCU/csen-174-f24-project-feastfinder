@@ -94,6 +94,11 @@ app.post('/users', async(req, res) => { //data should be sent as json
 
 //post new group
 app.post('/groups', async(req, res) => {
+    const { groupName, members } = req.body;
+
+    if (!groupName || !members || members.length === 0) {
+        return res.status(400).json({ error: "Group name and members are required." });
+    }
     // Get a key for a new Group.
     const newGroupKey = push(child(ref(db), 'Groups')).key;
 
@@ -159,6 +164,26 @@ app.get('/auth/status', (req, res) => {
 // //sign in with popup 
 // signInWithPopup(auth, new GoogleAuthProvider())
 
+/********************* PUT ROUTES *********************/
+
+// PUT route to update an existing group by ID
+app.put('/group/:id', async (req, res) => {
+    const { groupName, members } = req.body;
+
+    if (!groupName && !members) {
+        return res.status(400).json({ error: "Provide at least one field to update." });
+    }
+
+    const groupRef = ref(db, 'Groups/' + req.params.id);
+    const groupData = await get(groupRef);
+
+    if (!groupData.exists()) {
+        return res.status(404).json({ error: "Group not found." });
+    }
+
+    await update(groupRef, req.body);
+    res.status(200).send("Group updated successfully");
+});
 
 /********************* TEST ROUTE *********************/
 
