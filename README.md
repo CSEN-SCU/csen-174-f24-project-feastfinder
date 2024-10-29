@@ -2,9 +2,7 @@ App.js
 The main component that manages user authentication state and renders child components based on user progress:
 
 Login: Displays a login button for Google authentication.
-Preferences: Lets users set their food preferences.
-Group: Manages group creation and joining.
-VotingPage: Displays the voting interface for food categories.
+
 Login.js
 Handles user authentication with Google using Firebase. It contains a button for users to log in.
 
