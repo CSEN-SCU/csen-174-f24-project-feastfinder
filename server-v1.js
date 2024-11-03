@@ -8,6 +8,11 @@ const PORT = 8080;
 // middleware to parse data -> needed for post requests
 app.use(express.json());
 
+// Middleware to log each request with timestamp, method, URL
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    next();
+});
 
 //firebase vars -> connected to dthuita2002@gmail.com firebase account
 import { initializeApp } from 'firebase/app';
