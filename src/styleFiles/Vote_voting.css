@@ -1,0 +1,26 @@
+.voting{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10rem;
+    align-items: center;
+}
+.dataPanel{
+    height: 100vh;
+    width: 95vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.compImg{
+    height: 100%;
+    width: 8rem;
+}
+
+.restComp{
+    display: flex;
+    flex-direction: row;
+    background-color: bisque;
+}

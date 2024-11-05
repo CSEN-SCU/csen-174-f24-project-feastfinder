@@ -1,0 +1,38 @@
+.pref{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+}
+.choices, .top3{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+.restItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgCircle{
+    height: 12rem;
+    width: 12rem;
+    border: 5px solid #555;
+    border-radius: 50%;
+    object-fit: cover; /* stops stretching */
+}
+.imgCircle-sm{
+    height: 5rem;
+    width: 5rem;
+    border: 5px solid #555;
+    border-radius: 50%;
+    object-fit: cover; /* stops stretching */
+}
+.imgCircle:hover{
+    height: 12rem;
+    width: 12rem;
+    border: 5px solid #0e83ad;
+    border-radius: 50%;
+    object-fit: cover; /* stops stretching */
+}
