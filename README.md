@@ -5,7 +5,7 @@ This is a simple test program that shows how the search results might look with 
 The preferences ideally would be in a list that the user can select before looking at restaurants so that the API request can use the preferences as parameters.
 
 ### Testing
-Open file in VScode, make sure the Live Server extension is installed, then right-click and say "Open Server". This will open it locally on your default browser.
+Open file in VScode, make sure the Live Server extension is installed, then right-click and say "Open Server". This will open it locally on your default browser. Or just do the node stuff.
 
 ### Features
 * Currently, the program uses HTML, CSS, and JavaScript to function.
@@ -23,3 +23,9 @@ Since I am not entirely sure what we are doing for the frontend (and I learned I
 
 Shoutout ChatGPT for restructuring a lot of my initial code and adding comments.
 
+# Updates:
+1. 11/4: Linked with server-v1.js in the server branch
+    - line 208: app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'preference_search.html'));
+});
+    - When the webpage first loads, it looks in the public directory for the html code to run. By changing the '/' or the path, different files can be loaded on different pages of the web app
