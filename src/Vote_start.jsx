@@ -14,8 +14,8 @@ const Vote_start = () => {
 
   const member = [
     {name: 'noName', img: avatar1, status: 2},
-    {name: 'mmDefeater', img: avatar2, status: 1},
-    {name: 'msNasty', img: avatar3, status: 1},
+    {name: 'bigman', img: avatar2, status: 1},
+    {name: 'lil wayne', img: avatar3, status: 1},
   ];
   const currentUser = {name: 'EdgeLord', img: avatar4};
 

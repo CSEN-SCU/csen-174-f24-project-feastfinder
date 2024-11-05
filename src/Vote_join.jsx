@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import io from 'socket.io-client';
 
 import './styleFiles/Vote_join.css';
 
+const socket = io('http://localhost:3000');
+
+
 const Vote_join = () => {
   const [inputValue, setInputValue] = useState('');
+  const [groupID, setGroupID] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log(socket.id); 
+    });
+    socket.on('recieveGroup', (data) => {
+      setGroupID(data);
+      console.log('socket data: ',data);
+    });
+  }, [groupID]);
+
   const meetingButton = () => {
-    console.log(inputValue)
-    if(inputValue == 'next')
+    console.log('group id: ', groupID);
+    if(inputValue == groupID && groupID != '')
       navigate('/start');
   }
   return (
