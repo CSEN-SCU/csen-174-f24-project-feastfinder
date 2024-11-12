@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feast Finder</title>
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #4285F4;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #357AE8;
+    }
+
+    .google-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Feast Finder</h1>
+    <button id="googleLogin" class="button">
+      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Google_2015_logo.svg" alt="Google Icon">
+      Login with Google
+    </button>
+  </div>
+
+  <script>
+    // Firebase client-side configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCgVa39o_UF2xXEf-8lsXQL_s7BVpaYafc",
+      authDomain: "feast-finder-95126.firebaseapp.com",
+      projectId: "feast-finder-95126",
+      storageBucket: "feast-finder-95126.appspot.com",
+      messagingSenderId: "980022816970",
+      appId: "1:980022816970:web:2540ab37fe127a74ee0433"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Initialize Firestore
+    const db = firebase.firestore();
+
+    document.getElementById('googleLogin').addEventListener('click', async () => {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        const result = await firebase.auth().signInWithPopup(provider);
+        const idToken = await result.user.getIdToken();
+        const user = result.user;
+        const pictureUrl = user.photoURL;
+
+        // Save user data to localStorage
+        localStorage.setItem('user', JSON.stringify({
+          uid: result.user.uid,
+          name: result.user.displayName,
+          email: result.user.email,
+          picture: pictureUrl
+        }));
+
+        // Save user data to Firestore
+        await db.collection('users').doc(user.uid).set({
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+            picture: pictureUrl // Save picture URL in Firestore
+        });
+
+        // Send the ID token to the server
+        const response = await fetch('/login/google', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idToken })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          // Redirect to dashboard after login
+          window.location.href = 'dashboard.html';
+        } else {
+          console.error('Error:', data);
+          alert('Login failed');
+        }
+      } catch (error) {
+        console.error('Error during Google sign-in:', error);
+      }
+    });
+  </script>
+</body>
+</html>
