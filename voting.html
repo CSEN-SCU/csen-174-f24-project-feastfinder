@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feast Finder - Voting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .form-input {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Voting Page</h1>
+
+  <h2>Create or Join a Group</h2>
+
+  <!-- Create Group Section -->
+  <div>
+    <h3>Create a New Group</h3>
+    <button id="createGroup" class="btn">Create Group</button>
+  </div>
+
+  <!-- Join Group Section -->
+  <div>
+    <h3>Join an Existing Group</h3>
+    <input type="text" id="groupId" class="form-input" placeholder="Enter Group ID">
+    <button id="joinGroup" class="btn">Join Group</button>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userId = user ? user.uid : null;
+
+if (!userId) {
+  alert('Please log in first.');
+  window.location.href = 'login.html'; // Redirect to login page if not logged in
+}
+
+    // Create Group functionality
+    document.getElementById('createGroup').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/create-group', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userId })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert(`Group Created! Group ID: ${data.groupId}`);
+        } else {
+          alert(`Error: ${data.error}`);
+        }
+      } catch (error) {
+        console.error('Error creating group:', error);
+      }
+      window.location.href = `groupMembers.html?groupId=${data.groupId}`;
+    });
+
+    // Join Group functionality
+    document.getElementById('joinGroup').addEventListener('click', async () => {
+      const groupId = document.getElementById('groupId').value;
+
+      if (!groupId) {
+        alert("Please enter a valid group ID.");
+        return;
+      }
+
+      try {
+        const response = await fetch('/join-group', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userId, groupId })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert(`Joined Group ${groupId} successfully!`);
+        } else {
+          alert(`Error: ${data.error}`);
+        }
+      } catch (error) {
+        console.error('Error joining group:', error);
+      }
+      window.location.href = `groupMembers.html?groupId=${groupId}`;
+    });
+  </script>
+</body>
+</html>
