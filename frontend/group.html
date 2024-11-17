@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .group-container {
+            width: 80%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .group-header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .group-pic {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .members-list {
+            padding: 16px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .member-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .member-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        .member-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-info .name {
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .member-info .email {
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="group-container">
+        <div class="group-header" id="group-name">Loading Group...</div>
+        <div class="group-pic" id="group-pic">Group Picture</div>
+        <div class="members-list" id="members-list">
+            <!-- Member details will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Get the groupId from the query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const groupId = urlParams.get('groupId');
+
+        if (!groupId) {
+            document.getElementById("group-name").textContent = "Error: No group ID provided";
+        } else {
+            const apiUrl = `http://localhost:8080/group/${groupId}`;
+            fetchGroupDetails();
+        }
+
+
+        // Fetch group details from the backend
+        async function fetchGroupDetails() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch group details");
+                }
+                const groupData = await response.json();
+                renderGroupDetails(groupData);
+            } catch (error) {
+                console.error("Error fetching group details:", error);
+                document.getElementById("group-name").textContent = "Error Loading Group";
+            }
+        }
+
+        // Render group details in the DOM
+        function renderGroupDetails(groupData) {
+            const groupName = document.getElementById("group-name");
+            const groupPic = document.getElementById("group-pic");
+            const membersList = document.getElementById("members-list");
+
+            // Set group name
+            groupName.textContent = `Group: ${groupData.groupId}`;
+
+            // Placeholder for group picture
+            groupPic.textContent = "Group Picture";
+
+            // Clear and populate members
+            membersList.innerHTML = "";
+            groupData.members.forEach(member => {
+                const memberItem = document.createElement("div");
+                memberItem.className = "member-item";
+
+                const memberImg = document.createElement("img");
+                memberImg.src = member.picture !== "default_picture_url" ? member.picture : "https://via.placeholder.com/50";
+                memberImg.alt = `${member.name}'s picture`;
+
+                const memberInfo = document.createElement("div");
+                memberInfo.className = "member-info";
+
+                const memberName = document.createElement("div");
+                memberName.className = "name";
+                memberName.textContent = member.name;
+
+                const memberEmail = document.createElement("div");
+                memberEmail.className = "email";
+                memberEmail.textContent = member.email;
+
+                memberInfo.appendChild(memberName);
+                memberInfo.appendChild(memberEmail);
+                memberItem.appendChild(memberImg);
+                memberItem.appendChild(memberInfo);
+                membersList.appendChild(memberItem);
+            });
+        }
+
+        // Fetch and render group details on page load
+        fetchGroupDetails();
+    </script>
+</body>
+</html>
