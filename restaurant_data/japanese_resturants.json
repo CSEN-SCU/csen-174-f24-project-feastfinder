@@ -1,0 +1,142 @@
+[
+  {
+    "businessName": "Mizu Sushi Bar & Grill",
+    "price": "$$$",
+    "address": "1035 S Winchester Blvd",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/nvj_LEnUxrc39HCRexva0A/o.jpg"
+  },
+  {
+    "businessName": "Cha Cha Sushi",
+    "price": "$$",
+    "address": "547 W Capitol Expy",
+    "rating": 4,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/aFHl68Bsr8HA86AGPJJGqw/o.jpg"
+  },
+  {
+    "businessName": "Sushi Koya",
+    "price": "$$$",
+    "address": "2424 Almaden Rd",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/eKwgOgGPnsJJ3bq3ey-hrQ/o.jpg"
+  },
+  {
+    "businessName": "Udon Mugizo - San Jose",
+    "price": "$$",
+    "address": "1072 Saratoga Ave",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/K0v-v0iRHlq6l6lhNFog2Q/o.jpg"
+  },
+  {
+    "businessName": "Ozumo",
+    "price": "$$$",
+    "address": "355 Santana Row",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/ZT-mhdrsQLpl4XO39PH-TQ/o.jpg"
+  },
+  {
+    "businessName": "Izakaya",
+    "price": "$$",
+    "address": "1335 N 1st St",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/wzaxnNBr1WrJbEtDAi8v_Q/o.jpg"
+  },
+  {
+    "businessName": "Kumako Ramen Den",
+    "price": "$$",
+    "address": "487 Saratoga Ave",
+    "rating": 4.6,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/P5ykHrRzCRkqn7oB3sDiCw/o.jpg"
+  },
+  {
+    "businessName": "Mitsuwa Marketplace",
+    "price": "$$",
+    "address": "675 Saratoga Ave",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/tI-CjudU4JjqoO3xH0Z5PQ/o.jpg"
+  },
+  {
+    "businessName": "Dan Izakaya Restaurant",
+    "price": "$$",
+    "address": "1306 Saratoga Ave",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/WRzAbsjHNqXeqnjRMUIeSg/o.jpg"
+  },
+  {
+    "businessName": "Yuki Sushi",
+    "price": "$$",
+    "address": "1140 Lincoln Ave",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/MHhpgjlfIgifclvtal1aEA/o.jpg"
+  },
+  {
+    "businessName": "Hokkaido Ramen Santouka",
+    "price": "$$",
+    "address": "675 Saratoga Ave",
+    "rating": 4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/KT6Y_3bCg8AN9V3ie3Lfqw/o.jpg"
+  },
+  {
+    "businessName": "Ramen Nagi",
+    "price": "$$",
+    "address": "2855 Stevens Creek Blvd",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/Bwfvt1DVGg2O2TxM_v8Bpw/o.jpg"
+  },
+  {
+    "businessName": "Gyu-Kaku Japanese BBQ",
+    "price": "$$$",
+    "address": "28 N Almaden Ave",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/R071Ln8sDs76x9xbSDXnWQ/o.jpg"
+  },
+  {
+    "businessName": "Gombei",
+    "price": "$$",
+    "address": "193 Jackson St",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/K9HNQd9zPZsyYnRdhFWWFw/o.jpg"
+  },
+  {
+    "businessName": "Shuei-Do Manju Shop",
+    "price": "$",
+    "address": "217 Jackson St",
+    "rating": 4.7,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/6h69VerOGziKak05bGg3tA/o.jpg"
+  },
+  {
+    "businessName": "Fuji Sushi",
+    "price": "$$",
+    "address": "56 W Santa Clara St",
+    "rating": 4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/gfTewuEVATlPv6cVPY_-7w/o.jpg"
+  },
+  {
+    "businessName": "Enjoy Seoul",
+    "price": "$$",
+    "address": "979 Story Rd",
+    "rating": 4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/VgTkcXkf0u4lyYx0GLNscg/o.jpg"
+  },
+  {
+    "businessName": "Sanraku Oakridge",
+    "price": "$$",
+    "address": "925 Blossom Hill Rd",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/vQC1k5S0E14737vfysAE9Q/o.jpg"
+  },
+  {
+    "businessName": "Gaku Yakitori",
+    "price": "$$$",
+    "address": "5152 Moorpark Ave",
+    "rating": 4,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/DBkVgl-lZm_8V-cusgj_XA/o.jpg"
+  },
+  {
+    "businessName": "Ramen Champ",
+    "price": "$$",
+    "address": "6229 Santa Teresa Blvd",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/vtRinIqmzbAgDZS7GRuHng/o.jpg"
+  }
+]

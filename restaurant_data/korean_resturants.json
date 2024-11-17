@@ -1,0 +1,142 @@
+[
+  {
+    "businessName": "Gen Korean BBQ House",
+    "price": "$$",
+    "address": "1628 Hostetter Rd",
+    "rating": 4.2,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/PjnpdWprvYciexvMbmrIHw/o.jpg"
+  },
+  {
+    "businessName": "Mizu Sushi Bar & Grill",
+    "price": "$$$",
+    "address": "1035 S Winchester Blvd",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/nvj_LEnUxrc39HCRexva0A/o.jpg"
+  },
+  {
+    "businessName": "QPOT",
+    "price": "$$",
+    "address": "1610 E Capitol Expy",
+    "rating": 4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/8H4Wg87Nq9p7lNV9aWX7XA/o.jpg"
+  },
+  {
+    "businessName": "Danbi Korean Restaurant",
+    "price": "$$",
+    "address": "1092 N 1st St",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/MDm3LOwSS-ITckpKGzsqeQ/o.jpg"
+  },
+  {
+    "businessName": "SJ Omogari",
+    "price": "$$",
+    "address": "154 Jackson St",
+    "rating": 4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/0jkgYExp5QBYqf2kZ2SygQ/o.jpg"
+  },
+  {
+    "businessName": "Enjoy Seoul",
+    "price": "$$",
+    "address": "979 Story Rd",
+    "rating": 4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/VgTkcXkf0u4lyYx0GLNscg/o.jpg"
+  },
+  {
+    "businessName": "Goku Korean BBQ and Hot Pot",
+    "price": "$$$",
+    "address": "3085 Meridian Ave",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/SN289yeJZiGHctywpyx30Q/o.jpg"
+  },
+  {
+    "businessName": "Shin’s Tofu",
+    "price": "$$",
+    "address": "1701 Lundy Ave",
+    "rating": 4.6,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/19KXh__zykkULuKoMcg5gA/o.jpg"
+  },
+  {
+    "businessName": "HoM Korean Kitchen",
+    "price": "$$",
+    "address": "76 E Santa Clara St",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/S5F9wdTNRctzxsCvwTbOkw/o.jpg"
+  },
+  {
+    "businessName": "yakiniQ SJ",
+    "price": "$$$",
+    "address": "1783 W San Carlos St",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/4MrrRU9id0ZcDJSkRRiGdw/o.jpg"
+  },
+  {
+    "businessName": "Restaurant Gish",
+    "price": "$$$$",
+    "address": "1998 Homestead Rd",
+    "rating": 4.6,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/9WGvkOQEpJIsLuiVYTWyeg/o.jpg"
+  },
+  {
+    "businessName": "Baekjeong - San Jose",
+    "price": "N/A",
+    "address": "2855 Stevens Creek Blvd",
+    "rating": 4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/xmHdtLJS-Z7XHs9HtE_jWA/o.jpg"
+  },
+  {
+    "businessName": "Left Wing - San Jose",
+    "price": "$$",
+    "address": "3090 Olsen Dr",
+    "rating": 4,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/PHsWAeC0pHjoANrteUH-UA/o.jpg"
+  },
+  {
+    "businessName": "MoDak Korean Chicken",
+    "price": "$$",
+    "address": "405 Saratoga Ave",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/GG97sWWfodmpzsYgVjxNkA/o.jpg"
+  },
+  {
+    "businessName": "Mina's Korean BBQ",
+    "price": "$$",
+    "address": "3730 N 1st St",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/gu385j5j8gFuBc0sGkKsew/o.jpg"
+  },
+  {
+    "businessName": "SGD Tofu House",
+    "price": "$$",
+    "address": "491 Saratoga Ave",
+    "rating": 4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/YKo7L7GUJeqkvQNK9k3cTQ/o.jpg"
+  },
+  {
+    "businessName": "Gen Korean BBQ House",
+    "price": "$$",
+    "address": "1554 Saratoga Ave",
+    "rating": 3.7,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/ujvW5RHYuknNnL3CE6lkgw/o.jpg"
+  },
+  {
+    "businessName": "Paik's Noodle",
+    "price": "$$",
+    "address": "1520 Kiely Blvd",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/iK2HRZPj94PygMjpGX9wvg/o.jpg"
+  },
+  {
+    "businessName": "Rice Junky",
+    "price": "$$",
+    "address": "2089 El Camino Real",
+    "rating": 4.5,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/4XXcyFOkcMyJRjMRAuZpDg/o.jpg"
+  },
+  {
+    "businessName": "Kenzo Sushi",
+    "price": "$$$",
+    "address": "5465 Snell Ave",
+    "rating": 3.6,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/FlDOsti1efb6ky8L-iFiDA/o.jpg"
+  }
+]
