@@ -1,0 +1,21 @@
+Business Name	Price	Address	Rating	Image URL
+Gen Korean BBQ House	$$	1628 Hostetter Rd	4.2	https://s3-media4.fl.yelpcdn.com/bphoto/PjnpdWprvYciexvMbmrIHw/o.jpg
+Mizu Sushi Bar & Grill	$$$	1035 S Winchester Blvd	3.9	https://s3-media3.fl.yelpcdn.com/bphoto/nvj_LEnUxrc39HCRexva0A/o.jpg
+QPOT	$$	1610 E Capitol Expy	4	https://s3-media1.fl.yelpcdn.com/bphoto/8H4Wg87Nq9p7lNV9aWX7XA/o.jpg
+Danbi Korean Restaurant	$$	1092 N 1st St	4.3	https://s3-media3.fl.yelpcdn.com/bphoto/MDm3LOwSS-ITckpKGzsqeQ/o.jpg
+SJ Omogari	$$	154 Jackson St	4	https://s3-media1.fl.yelpcdn.com/bphoto/0jkgYExp5QBYqf2kZ2SygQ/o.jpg
+Enjoy Seoul	$$	979 Story Rd	4	https://s3-media3.fl.yelpcdn.com/bphoto/VgTkcXkf0u4lyYx0GLNscg/o.jpg
+Goku Korean BBQ and Hot Pot	$$$	3085 Meridian Ave	3.9	https://s3-media1.fl.yelpcdn.com/bphoto/SN289yeJZiGHctywpyx30Q/o.jpg
+Shin’s Tofu	$$	1701 Lundy Ave	4.6	https://s3-media1.fl.yelpcdn.com/bphoto/19KXh__zykkULuKoMcg5gA/o.jpg
+HoM Korean Kitchen	$$	76 E Santa Clara St	4.1	https://s3-media4.fl.yelpcdn.com/bphoto/S5F9wdTNRctzxsCvwTbOkw/o.jpg
+yakiniQ SJ	$$$	1783 W San Carlos St	3.8	https://s3-media1.fl.yelpcdn.com/bphoto/4MrrRU9id0ZcDJSkRRiGdw/o.jpg
+Restaurant Gish	$$$$	1998 Homestead Rd	4.6	https://s3-media1.fl.yelpcdn.com/bphoto/9WGvkOQEpJIsLuiVYTWyeg/o.jpg
+Baekjeong - San Jose	N/A	2855 Stevens Creek Blvd	4	https://s3-media3.fl.yelpcdn.com/bphoto/xmHdtLJS-Z7XHs9HtE_jWA/o.jpg
+Left Wing - San Jose	$$	3090 Olsen Dr	4	https://s3-media2.fl.yelpcdn.com/bphoto/PHsWAeC0pHjoANrteUH-UA/o.jpg
+MoDak Korean Chicken	$$	405 Saratoga Ave	4.3	https://s3-media1.fl.yelpcdn.com/bphoto/GG97sWWfodmpzsYgVjxNkA/o.jpg
+Mina's Korean BBQ	$$	3730 N 1st St	4.3	https://s3-media1.fl.yelpcdn.com/bphoto/gu385j5j8gFuBc0sGkKsew/o.jpg
+SGD Tofu House	$$	491 Saratoga Ave	4	https://s3-media1.fl.yelpcdn.com/bphoto/YKo7L7GUJeqkvQNK9k3cTQ/o.jpg
+Gen Korean BBQ House	$$	1554 Saratoga Ave	3.7	https://s3-media4.fl.yelpcdn.com/bphoto/ujvW5RHYuknNnL3CE6lkgw/o.jpg
+Paik's Noodle	$$	1520 Kiely Blvd	4.3	https://s3-media1.fl.yelpcdn.com/bphoto/iK2HRZPj94PygMjpGX9wvg/o.jpg
+Rice Junky	$$	2089 El Camino Real	4.5	https://s3-media4.fl.yelpcdn.com/bphoto/4XXcyFOkcMyJRjMRAuZpDg/o.jpg
+Kenzo Sushi	$$$	5465 Snell Ave	3.6	https://s3-media4.fl.yelpcdn.com/bphoto/FlDOsti1efb6ky8L-iFiDA/o.jpg

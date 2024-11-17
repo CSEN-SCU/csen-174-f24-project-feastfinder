@@ -1,0 +1,21 @@
+Business Name	Price	Address	Rating	Image URL
+LUNA Mexican Kitchen - The Alameda	$$	1495 The Alameda	4.3	https://s3-media1.fl.yelpcdn.com/bphoto/JjzG0auXHdUing7hHn7keQ/o.jpg
+Mariscos Costa Alegre	$$	855 N 13th St	4.6	https://s3-media1.fl.yelpcdn.com/bphoto/kEJYTWSoboPibwp9a1PuTw/o.jpg
+Añejo Cantina & Kitchen	$$	3132 Williams Rd	4.4	https://s3-media1.fl.yelpcdn.com/bphoto/Xwvvk5Mni3QsEmsXGZcRkw/o.jpg
+El Camaron De Sinaloa	$$	245 Willow St	4.3	https://s3-media4.fl.yelpcdn.com/bphoto/6e-smcuF6fTV3JVvsbpf8A/o.jpg
+El Cabron Kitchen & Cantina	N/A	155 W. San Fernando St	4.1	https://s3-media1.fl.yelpcdn.com/bphoto/PoPSOMQYaEXc8-rjguHMfg/o.jpg
+Zona Rosa	$$	1411 The Alameda	3.9	https://s3-media2.fl.yelpcdn.com/bphoto/YJXJGM9Y4LEvgOb6BwQZcg/o.jpg
+Dia de Pesca	$$	55 N Bascom Ave	3.9	https://s3-media4.fl.yelpcdn.com/bphoto/2zP3M1WVwG09S7p7T61wgQ/o.jpg
+Secco Restaurant and Bar	N/A	300 Almaden Blvd	4.5	https://s3-media2.fl.yelpcdn.com/bphoto/ZvcSGH828XrLrDRT0uUp2Q/o.jpg
+Aqui Cal-Mex	$$	1145 Lincoln Ave	3.9	https://s3-media1.fl.yelpcdn.com/bphoto/pfzlY1mPZEa_Ta-LEIguXA/o.jpg
+Mariscos Costa Alegre - Alum Rock	$$	1527 Alum Rock Ave	4.4	https://s3-media3.fl.yelpcdn.com/bphoto/p4BBkRmuMnxHQo3l8Z6h0w/o.jpg
+Acopio	N/A	399 S 24th St	4.5	https://s3-media4.fl.yelpcdn.com/bphoto/jUhGVCJQbDZzraM_zz8TfA/o.jpg
+Angelou's Mexican Grill	$$	78 S 1st St	4	https://s3-media3.fl.yelpcdn.com/bphoto/0ODXo0VCvbFOIkkiCWATIg/o.jpg
+El Halal Amigos	$$	1100 Lincoln Ave	4.2	https://s3-media4.fl.yelpcdn.com/bphoto/II7NdBdkgR3P2bu3zrrBqQ/o.jpg
+El Halal Amigos	$$	1100 Lincoln Ave	4.3	https://s3-media1.fl.yelpcdn.com/bphoto/8WEUyuF_OD1x3OsE_cdYsQ/o.jpg
+Olla Cocina	$$	17 N San Pedro St	3.7	https://s3-media2.fl.yelpcdn.com/bphoto/q_OzHS59Mz0_IMp0JXyKCQ/o.jpg
+Casa Villa	$$	840 Willow St	4.2	https://s3-media4.fl.yelpcdn.com/bphoto/pbR-2FyZ4S5zUX40qRHmNg/o.jpg
+Tacos El Compa Taqueria	$$	1321 Blossom Hill Rd	4.4	https://s3-media3.fl.yelpcdn.com/bphoto/GGfXcFHnKIETlUWFyYVXyw/o.jpg
+Adelita's Taqueria & Bar	$$	1896 Curtner Ave	3.8	https://s3-media2.fl.yelpcdn.com/bphoto/bBNDyC04cMYkBPTZ-brVrg/o.jpg
+ABVE The Basics	$$	2705 Union Ave	4.5	https://s3-media3.fl.yelpcdn.com/bphoto/ZQ9YU_X761SbsrCaU1n1rg/o.jpg
+Cali Spartan Mexican Kitchen	$$	515 S 10th St	4	https://s3-media2.fl.yelpcdn.com/bphoto/Yoyiy4laZcu4j2aBXqLdPg/o.jpg

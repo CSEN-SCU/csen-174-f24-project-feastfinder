@@ -1,0 +1,21 @@
+Business Name	Price	Address	Rating	Image URL
+Paesano Ristorante Italiano	$$	350 W Julian St	4.1	https://s3-media4.fl.yelpcdn.com/bphoto/oDYRK0KAZ7Le47ZhDDt0ag/o.jpg
+Siena Bistro	$$	1359 Lincoln Ave	4.3	https://s3-media2.fl.yelpcdn.com/bphoto/TvJQsUIJiYCOByZoLaauBA/o.jpg
+Orchestria Palm Court	$$	27 E William St	4.4	https://s3-media3.fl.yelpcdn.com/bphoto/t3YuLfR0fFDwcwPRm-sOHw/o.jpg
+Palermo Italian Restaurant	$$	791 Auzerais Ave	4.2	https://s3-media3.fl.yelpcdn.com/bphoto/wSl8YjxyD5qQw1xkYXNYkg/o.jpg
+Rollati Ristorante	$$$	181 E Santa Clara St	3.8	https://s3-media4.fl.yelpcdn.com/bphoto/uWLx60u7hNMpciklJBhbtw/o.jpg
+Bertucelli's La Villa	$$	1319 Lincoln Ave	4.3	https://s3-media2.fl.yelpcdn.com/bphoto/fJFblQC0s4fdNwJ_GCKf4A/o.jpg
+Vito's Trattoria	$$$	90 Skyport Dr	4	https://s3-media2.fl.yelpcdn.com/bphoto/DLYOff6aA12_40S7UJV3zQ/o.jpg
+Pizza Bocca Lupo	$$	87 N San Pedro St	4.1	https://s3-media1.fl.yelpcdn.com/bphoto/Qu6aZzKNF-0N59wtq3FcdQ/o.jpg
+Trattoria 360	$$$	360 E Campbell Ave	4.6	https://s3-media3.fl.yelpcdn.com/bphoto/ZARuGgg9VLkSslc4rvIeBg/o.jpg
+Dolce Sicilia	$	1165 Lincoln Ave	4.7	https://s3-media4.fl.yelpcdn.com/bphoto/VfvxujLiNTgrjLOOjYTIYg/o.jpg
+Original Joe's San Jose	$$$	301 S 1st St	3.2	https://s3-media2.fl.yelpcdn.com/bphoto/4UQe8NZcrS4vXPrHYvCKnw/o.jpg
+Antipasto's By Derose Gourmet Meat Fish & Deli	$$	3454 McKee Rd	4.5	https://s3-media3.fl.yelpcdn.com/bphoto/cz4PKevCEGTlutQZm6i2BQ/o.jpg
+Milan	N/A	1712 Meridian Ave	4.3	https://s3-media2.fl.yelpcdn.com/bphoto/FOtFqGd-0-RTi6UEEaX_KA/o.jpg
+Il Fornaio	$$	302 S Market St	3.5	https://s3-media1.fl.yelpcdn.com/bphoto/OX7Zbd1zN8YDKO4gu1TMrg/o.jpg
+Al Castello Ristorante & Pizzeria	$$	2083 Camden Ave	3.9	https://s3-media2.fl.yelpcdn.com/bphoto/UBZ31MpMepx1RniLQsp3mA/o.jpg
+Ristorante da Maria	$$	2707 Union Ave	4.1	https://s3-media2.fl.yelpcdn.com/bphoto/qy2LG6N7NSekI-5ebKJX3w/o.jpg
+Maggiano's Little Italy	$$	3055 Olin Ave	3.4	https://s3-media3.fl.yelpcdn.com/bphoto/6ETRDSBQa1iyXXhJuxVceA/o.jpg
+The Old Spaghetti Factory	$$	51 N San Pedro St	3.1	https://s3-media1.fl.yelpcdn.com/bphoto/fvVGoM4BqQmkPKoe0m7HhQ/o.jpg
+Bistro Tupaz	$$	5899 Santa Teresa Blvd	4.2	https://s3-media3.fl.yelpcdn.com/bphoto/2bgjsd9-DIA9bI9BhgrX_g/o.jpg
+Be.Steak.A	$$$$	1887 S Bascom Ave	4.2	https://s3-media1.fl.yelpcdn.com/bphoto/mjnz9VLeRWUDm9zXELb1YA/o.jpg
