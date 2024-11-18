@@ -17,9 +17,11 @@
     "express": "^4.21.1",
     "firebase-admin": "^13.0.0",
     "http": "^0.0.1-security",
+    "node-fetch": "^2.7.0",
     "react-scripts": "^5.0.1",
     "socket.io": "^4.8.1",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "supertest": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

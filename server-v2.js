@@ -4,10 +4,8 @@ const { instrument } = require('@socket.io/admin-ui')
 const fs = require('fs');
 const cors = require('cors');
 const express = require('express');
-// include next 2 lines once firebase added properly
-// const { getAuth } = require('firebase-admin/auth');
-// const { db } = require('./firebaseConfig.js'); // Import the Firestore instance from firebaseConfig.js
 
+// socket and server init
 const app = express();
 const server = require('http').createServer(app);
 const options =  {
@@ -19,6 +17,21 @@ const options =  {
 const io = require('socket.io')(server, options);
 const PORT = 3000;
 
+/************************ firebase configs? ************************/
+
+const { getAuth } = require('firebase-admin/auth');
+const admin = require('firebase-admin');
+const serviceAccount = require('./serviceAccountKey.json');
+
+// Initialize Firebase Admin SDK
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://feast-finder-95126.firebaseio.com" // Replace with your Firebase database URL
+});
+
+// Firestore initialization
+const db = admin.firestore();
+
 /************************ SERVER ROUTES ************************/
 
 // Middleware for CORS and parsing JSON
@@ -27,9 +40,32 @@ app.use(express.json());
 // Serve static files
 app.use(express.static('frontend'));
 
+//Test Routes
+app.get('/hi', (req, res) => {
+  console.log('hi route was called!')
+  res.send({'serverRes':'hello'});
+})
+app.get('/:groupID', async (req, res) => {
+  const { groupID } = req.params;
+  console.log('req params: ', groupID);
+
+  let groupData;
+  await db.collection('groups').doc(groupID).get()
+  .then(data => {
+    if(!data.exists)
+      console.log('no doc exists');
+    else{
+      console.log('data: ', data.data().members);
+      groupData = data.data().members;
+    }
+  })
+  res.send({members: groupData});
+})
+
 
 // Route for Google login
 app.post('/login/google', async (req, res) => {
+  console.log('/login/google route called :)')
   try {
     const { idToken } = req.body;
     if (!idToken) {
@@ -291,6 +327,7 @@ server.listen(PORT, () => {
 
 instrument(io, {auth:false}) //for socket.io admin webpage access
 
+module.exports = server; //export for servering test
 
 //make sure ReactJS works w/ sockets
 //devMetric -> rate of user joining, rate of backend failure, firestore graph for number of connection per unit time
