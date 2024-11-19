@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            gap: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .section {
+            flex: 1;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .profile-picture {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-bottom: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .user-details {
+            margin-bottom: 10px;
+        }
+
+        .preferences-list, .groups-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .preferences-list li, .groups-list li {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .group-link {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .group-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- User Info -->
+        <div class="section">
+            <h3>User Info</h3>
+            <div id="user-picture" class="profile-picture"></div>
+            <div class="user-details">
+                <strong>Name:</strong> <span id="user-name">Loading...</span><br>
+                <strong>Age:</strong> <span id="user-age">Loading...</span><br>
+                <strong>Description:</strong>
+                <p id="user-description">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Preferences -->
+        <div class="section">
+            <h3>Preferences</h3>
+            <h4>Top 3 Food Types:</h4>
+            <ul id="preferences-list" class="preferences-list">
+                <li>Loading...</li>
+            </ul>
+            <h4>Recent:</h4>
+            <ul id="recent-list" class="preferences-list">
+                <li>Loading...</li>
+            </ul>
+        </div>
+
+        <!-- Groups -->
+        <div class="section">
+            <h3>Groups</h3>
+            <ul id="groups-list" class="groups-list">
+                <li>Loading...</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const apiUrl = `http://localhost:3000/profile`;
+
+        // Fetch profile data for the currently authenticated user
+        async function fetchProfileData() {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    credentials: 'include', // Pass session info for authentication
+                });
+                if (!response.ok) {
+                    throw new Error("Failed to fetch profile data");
+                }
+
+                const profileData = await response.json();
+                renderProfileData(profileData);
+            } catch (error) {
+                console.error("Error fetching profile data:", error);
+                document.getElementById("user-name").textContent = "Error loading profile.";
+            }
+        }
+
+        // Render profile data
+        function renderProfileData(data) {
+            // User Info
+            const userPicture = document.getElementById("user-picture");
+            const userName = document.getElementById("user-name");
+            const userAge = document.getElementById("user-age");
+            const userDescription = document.getElementById("user-description");
+
+            userPicture.style.backgroundImage = `url(${data.picture || 'https://via.placeholder.com/200'})`;
+            userName.textContent = data.name || "Unknown";
+            userAge.textContent = data.age || "Unknown";
+            userDescription.textContent = data.description || "No description available.";
+
+            // Preferences
+            const preferencesList = document.getElementById("preferences-list");
+            preferencesList.innerHTML = "";
+            data.preferences.forEach(pref => {
+                const listItem = document.createElement("li");
+                listItem.textContent = pref;
+                preferencesList.appendChild(listItem);
+            });
+
+            // Recent
+            const recentList = document.getElementById("recent-list");
+            recentList.innerHTML = "";
+            data.recent.forEach(recent => {
+                const listItem = document.createElement("li");
+                listItem.textContent = recent;
+                recentList.appendChild(listItem);
+            });
+
+            // Groups
+            const groupsList = document.getElementById("groups-list");
+            groupsList.innerHTML = "";
+            data.groups.forEach(group => {
+                const listItem = document.createElement("li");
+                const groupLink = document.createElement("a");
+                groupLink.href = `group.html?groupId=${group.groupId}`; // Link to group.html with query parameter
+                groupLink.textContent = group.name;
+                groupLink.className = "group-link";
+                listItem.appendChild(groupLink);
+                groupsList.appendChild(listItem);
+            });
+        }
+
+        // Load profile data on page load
+        fetchProfileData();
+    </script>
+</body>
+</html>
