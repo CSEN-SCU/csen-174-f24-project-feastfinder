@@ -1,0 +1,142 @@
+[
+  {
+    "businessName": "Souvlaki's Greek Skewers",
+    "price": "$$",
+    "address": "577 W Alma Ave",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/z4r8S3Ib8husncAgEa5Ozg/o.jpg"
+  },
+  {
+    "businessName": "ACHILLES",
+    "price": "$$",
+    "address": "2521 Newhall St",
+    "rating": 4.6,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/K4xvAFIcgg8ZlOSVadAjVQ/o.jpg"
+  },
+  {
+    "businessName": "Nick The Greek",
+    "price": "$$",
+    "address": "143 W Santa Clara St",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/2mHkJAi-5J2k9kj10z1Fxg/o.jpg"
+  },
+  {
+    "businessName": "Tasso's Restaurant & Bar",
+    "price": "$$",
+    "address": "1530 Southwest Expy",
+    "rating": 4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/fdkNlnsYuekNLbN6Fp8ifg/o.jpg"
+  },
+  {
+    "businessName": "Opa!",
+    "price": "$$",
+    "address": "1100 Lincoln Ave",
+    "rating": 3.6,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/9jCc-fZk907bsoHmad7evQ/o.jpg"
+  },
+  {
+    "businessName": "Nick the Greek",
+    "price": "$$",
+    "address": "1399 Lincoln Ave",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/8iGv42zXAlovt5V3LignHg/o.jpg"
+  },
+  {
+    "businessName": "Greek Spot",
+    "price": "$$",
+    "address": "5685 Cottle Rd",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/qSS_p73jBFxS0afqGwQfxw/o.jpg"
+  },
+  {
+    "businessName": "Nick The Greek",
+    "price": "$$",
+    "address": "5019 Almaden Expy",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/bL-Klid5pxPicjlfRcO0lQ/o.jpg"
+  },
+  {
+    "businessName": "El Greco Grill",
+    "price": "$$",
+    "address": "2325 S Winchester Blvd",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/NyyZWw8RcO-tQ1Snxw9XHQ/o.jpg"
+  },
+  {
+    "businessName": "Yiassoo",
+    "price": "$$",
+    "address": "2180 S Bascom Ave",
+    "rating": 4,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/VsOnciUi3_cKoEjs_bJ6Lg/o.jpg"
+  },
+  {
+    "businessName": "Halal Gyro Express",
+    "price": "$",
+    "address": "3730 N 1st St",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/2r7LGibo2okw07dZqHw7IA/o.jpg"
+  },
+  {
+    "businessName": "Nick the Greek",
+    "price": "$$",
+    "address": "2223 Business Cir",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/9N0bPE8IbnIsnXz5InMMHw/o.jpg"
+  },
+  {
+    "businessName": "Garlic Mediterranean Grill",
+    "price": "$$",
+    "address": "2786 Homestead Rd",
+    "rating": 4.2,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/XcYQveE94GAe2TjlvN12XQ/o.jpg"
+  },
+  {
+    "businessName": "365 Mediterranean",
+    "price": "N/A",
+    "address": "1711 Branham Ln",
+    "rating": 4.5,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/uU3429FzCVYwzPIkAGQTsQ/o.jpg"
+  },
+  {
+    "businessName": "Nick The Greek",
+    "price": "$$",
+    "address": "125 Bernal Rd",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/yaC_aKZ7Gr1YSbsxfD6f3Q/o.jpg"
+  },
+  {
+    "businessName": "Dio Deka",
+    "price": "$$$$",
+    "address": "210 E Main St",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/yWdx-qDRR3iN7s-58vDNoQ/o.jpg"
+  },
+  {
+    "businessName": "Royal Kebabs & Gyros",
+    "price": "$$",
+    "address": "1712 W Campbell Ave",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/U41BKTRy59oTIEFs-wgVxg/o.jpg"
+  },
+  {
+    "businessName": "Athena Grill",
+    "price": "$$",
+    "address": "1505 Space Park Dr",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/HPMdvIK9RkMbeW2HIRg6OQ/o.jpg"
+  },
+  {
+    "businessName": "Opa! Authentic Greek - Campbell",
+    "price": "$$",
+    "address": "276 E Campbell Ave",
+    "rating": 3.6,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/GYcbQ1_ye5oPBeOnfgDIGA/o.jpg"
+  },
+  {
+    "businessName": "Agape Grill",
+    "price": "$$",
+    "address": "845 Stewart Dr",
+    "rating": 4.2,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/tzvwRIiSNZLVtWYwQw2KDw/o.jpg"
+  }
+]

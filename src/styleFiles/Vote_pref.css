@@ -1,0 +1,155 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Main Container */
+  .pref {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Banner */
+  .banner {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Top 3 Picks */
+  .top3 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .restItem {
+    text-align: center;
+    margin: 10px;
+    flex: 1;
+  }
+  
+  .imgCircle-sm {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .restItem h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .restItem h3 {
+    font-size: 1em;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  /* Restaurant Choices */
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .imgCircle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    border: 2px solid #ddd;
+  }
+  
+  .imgCircle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .choices .restItem h3 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1em;
+  }
+  
+  /* Button */
+  button {
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #357ab7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .top3, .choices {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .imgCircle {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .imgCircle-sm {
+      width: 70px;
+      height: 70px;
+    }
+  
+    button {
+      font-size: 0.9em;
+      padding: 10px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .imgCircle {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .imgCircle-sm {
+      width: 60px;
+      height: 60px;
+    }
+  
+    button {
+      font-size: 0.8em;
+      padding: 8px 15px;
+    }
+  }
+  

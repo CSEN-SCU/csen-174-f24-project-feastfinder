@@ -1,0 +1,142 @@
+[
+    {
+        "Business Name": "Serious Dumpling 正经生煎",
+        "Price": "$$",
+        "Address": "49 North San Pedro St",
+        "Rating": 4.1,
+        "Image URL": "https://s3-media2.fl.yelpcdn.com/bphoto/1tNYt0LownSmbwdKZz-Ajg/o.jpg"
+    },
+    {
+        "Business Name": "Skewers & Brew",
+        "Price": "$",
+        "Address": "65 S 1st St",
+        "Rating": 4.3,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/r3fTnriBhi_XhDTTIiTvug/o.jpg"
+    },
+    {
+        "Business Name": "Urban Momo",
+        "Price": "$$",
+        "Address": "100 N Almaden Ave",
+        "Rating": 4.2,
+        "Image URL": "https://s3-media2.fl.yelpcdn.com/bphoto/iyDdCOxsiJlcRK0fH-vO8Q/o.jpg"
+    },
+    {
+        "Business Name": "Din Tai Fung",
+        "Price": "$$",
+        "Address": "2855 Stevens Creek Blvd",
+        "Rating": 3.7,
+        "Image URL": "https://s3-media2.fl.yelpcdn.com/bphoto/qrw2z3p8wmM7b9k--gVK_Q/o.jpg"
+    },
+    {
+        "Business Name": "Home Eat",
+        "Price": "$$",
+        "Address": "88 S 4th St",
+        "Rating": 4.5,
+        "Image URL": "https://s3-media1.fl.yelpcdn.com/bphoto/nQLj5jML6055ICGRrEcjtQ/o.jpg"
+    },
+    {
+        "Business Name": "Dough Zone - South San Jose",
+        "Price": "$$",
+        "Address": "5130 Cherry Ave",
+        "Rating": 4.3,
+        "Image URL": "https://s3-media2.fl.yelpcdn.com/bphoto/oXv1XhGcdM6gneKB4ED8bw/o.jpg"
+    },
+    {
+        "Business Name": "China Chen",
+        "Price": "$$",
+        "Address": "400 S 3rd St",
+        "Rating": 4.0,
+        "Image URL": "https://s3-media4.fl.yelpcdn.com/bphoto/dEkntJHJfumGS7_tJAjt6A/o.jpg"
+    },
+    {
+        "Business Name": "Great Wall Chinese Restaurant",
+        "Price": "$$",
+        "Address": "1455 Bird Ave",
+        "Rating": 4.0,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/aDwDCmFBo4VRpqLLIOvwJA/o.jpg"
+    },
+    {
+        "Business Name": "New Tung Kee Noodle",
+        "Price": "$$",
+        "Address": "1098 E Brokaw Rd",
+        "Rating": 4.2,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/H1fsvtqKUbdkRkwWihlnrA/o.jpg"
+    },
+    {
+        "Business Name": "Sweet Mango",
+        "Price": "$$",
+        "Address": "1040 Willow St",
+        "Rating": 3.9,
+        "Image URL": "https://s3-media4.fl.yelpcdn.com/bphoto/_L_EZ_PSK0GsBsdu7MpGXw/o.jpg"
+    },
+    {
+        "Business Name": "575 Miishien",
+        "Price": "$$",
+        "Address": "840 El Paseo De Saratoga",
+        "Rating": 4.3,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/C8wKK5BPlmg7PEk993orZw/o.jpg"
+    },
+    {
+        "Business Name": "Pho Kim Long",
+        "Price": "$$",
+        "Address": "2082 N Capitol Ave",
+        "Rating": 3.7,
+        "Image URL": "https://s3-media1.fl.yelpcdn.com/bphoto/ibXLVEOFCmy-YHBPb-rFCw/o.jpg"
+    },
+    {
+        "Business Name": "Nam Vang Restaurant",
+        "Price": "$$",
+        "Address": "2477 Alvin Ave",
+        "Rating": 3.7,
+        "Image URL": "https://s3-media4.fl.yelpcdn.com/bphoto/dMuz6Z_FD_nW3yBsISr7Pg/o.jpg"
+    },
+    {
+        "Business Name": "Hunan Taste Restaurant",
+        "Price": "$$",
+        "Address": "998 N 4th St",
+        "Rating": 3.8,
+        "Image URL": "https://s3-media1.fl.yelpcdn.com/bphoto/IYPp06MgFrPe2rbC_xT-8g/o.jpg"
+    },
+    {
+        "Business Name": "China Delight Restaurant",
+        "Price": "$$",
+        "Address": "5813 Cottle Rd",
+        "Rating": 4.0,
+        "Image URL": "https://s3-media4.fl.yelpcdn.com/bphoto/4BPT4Vdz4YQFq7vWlCfE1A/o.jpg"
+    },
+    {
+        "Business Name": "Dumpling Time",
+        "Price": "$$",
+        "Address": "378 Santana Row",
+        "Rating": 3.6,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/kbSrwIJH8HtmE7sHZlSyCg/o.jpg"
+    },
+    {
+        "Business Name": "Haidilao Hotpot Cupertino",
+        "Price": "$$$",
+        "Address": "19409 Stevens Creek Blvd",
+        "Rating": 4.5,
+        "Image URL": "https://s3-media4.fl.yelpcdn.com/bphoto/PK4NjghpfYoOoamhzpTPHA/o.jpg"
+    },
+    {
+        "Business Name": "Jade Cathay",
+        "Price": "$$",
+        "Address": "1339 N 1st St",
+        "Rating": 3.5,
+        "Image URL": "https://s3-media1.fl.yelpcdn.com/bphoto/c5db13W7VM3kC4iB5ZR5SQ/o.jpg"
+    },
+    {
+        "Business Name": "Jade China",
+        "Price": "$$",
+        "Address": "2524 Berryessa Rd",
+        "Rating": 3.8,
+        "Image URL": "https://s3-media3.fl.yelpcdn.com/bphoto/9w75P6q4tzNUuK0m34a40A/o.jpg"
+    },
+    {
+        "Business Name": "Taiwan Restaurant",
+        "Price": "$$",
+        "Address": "1306 Lincoln Ave",
+        "Rating": 3.6,
+        "Image URL": "https://s3-media1.fl.yelpcdn.com/bphoto/eILym0hIiBH6s6z85Z458A/o.jpg"
+    }
+]
