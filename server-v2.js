@@ -4,6 +4,7 @@ const { instrument } = require('@socket.io/admin-ui')
 const fs = require('fs');
 const cors = require('cors');
 const express = require('express');
+const { db, auth } = require('./firebaseConfig-server'); // Import Firebase configuration
 
 // socket and server init
 const app = express();
@@ -19,18 +20,18 @@ const PORT = 3000;
 
 /************************ firebase configs? ************************/
 
-const { getAuth } = require('firebase-admin/auth');
-const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+// const { getAuth } = require('firebase-admin/auth');
+// const admin = require('firebase-admin');
+// const serviceAccount = require('./serviceAccountKey.json');
 
-// Initialize Firebase Admin SDK
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://feast-finder-95126.firebaseio.com" // Replace with your Firebase database URL
-});
+// // Initialize Firebase Admin SDK
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://feast-finder-95126.firebaseio.com" // Replace with your Firebase database URL
+// });
 
-// Firestore initialization
-const db = admin.firestore();
+// // Firestore initialization
+// const db = admin.firestore();
 
 /************************ SERVER ROUTES ************************/
 
@@ -73,7 +74,8 @@ app.post('/login/google', async (req, res) => {
     }
 
     // Verify ID token with Firebase Admin SDK
-    const decodedToken = await getAuth().verifyIdToken(idToken);
+    //const decodedToken = await getAuth().verifyIdToken(idToken);
+    const decodedToken = await auth.verifyIdToken(idToken);
     const uid = decodedToken.uid;
 
     // Store user data in Firestore
