@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .dataPanel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .restComp {
+            width: 250px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .restComp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .restComp img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .restComp h1 {
+            font-size: 1.2em;
+            margin: 10px 0 5px 10px;
+        }
+
+        .restComp h2, .restComp h4 {
+            font-size: 1em;
+            margin: 5px 10px;
+        }
+
+        .restComp .selected {
+            border: 2px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">Vote for Your Favorite Restaurant</div>
+    <div class="dataPanel" id="dataPanel">
+        <!-- Restaurants will be dynamically added here -->
+    </div>
+
+    <script>
+        const restData = [
+            {
+                "name": "Sunset Grill",
+                "picture": "https://via.placeholder.com/250x150?text=Sunset+Grill",
+                "foodType": "American",
+                "price": "$$",
+                "description": "Enjoy classic American dishes with a view, specializing in burgers, steaks, and fresh salads."
+            },
+            {
+                "name": "Bistro Bon Vivant",
+                "picture": "https://via.placeholder.com/250x150?text=Bistro+Bon+Vivant",
+                "foodType": "French",
+                "price": "$$$",
+                "description": "A cozy French bistro offering authentic dishes, including escargot, coq au vin, and fresh pastries."
+            },
+            {
+                "name": "Sushi Zen",
+                "picture": "https://via.placeholder.com/250x150?text=Sushi+Zen",
+                "foodType": "Japanese",
+                "price": "$$$",
+                "description": "Fresh and flavorful sushi and sashimi served in a traditional setting with modern touches."
+            },
+            {
+                "name": "La Cucina Verde",
+                "picture": "https://via.placeholder.com/250x150?text=La+Cucina+Verde",
+                "foodType": "Italian",
+                "price": "$$",
+                "description": "Homemade pasta, wood-fired pizzas, and a fine selection of wines make this a favorite for Italian lovers."
+            },
+            {
+                "name": "Spice Route",
+                "picture": "https://via.placeholder.com/250x150?text=Spice+Route",
+                "foodType": "Indian",
+                "price": "$",
+                "description": "Aromatic spices and authentic curries in a vibrant setting that transports you straight to India."
+            }
+        ];
+
+        const dataPanel = document.getElementById('dataPanel');
+        const selectedRestaurants = [];
+
+        function renderRestaurants() {
+            restData.forEach(restaurant => {
+                const restDiv = document.createElement('div');
+                restDiv.className = 'restComp';
+                restDiv.innerHTML = `
+                    <img src="${restaurant.picture}" alt="${restaurant.name}">
+                    <div>
+                        <h1>${restaurant.name}</h1>
+                        <h2>Price: ${restaurant.price}</h2>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <h1>Cuisine: ${restaurant.foodType}</h1>
+                        <h4>Description: ${restaurant.description}</h4>
+                    </div>
+                `;
+
+                // Add click handler
+                restDiv.addEventListener('click', () => {
+                    if (selectedRestaurants.includes(restaurant.name)) {
+                        // Already selected, deselect it
+                        selectedRestaurants.splice(selectedRestaurants.indexOf(restaurant.name), 1);
+                        restDiv.classList.remove('selected');
+                    } else if (selectedRestaurants.length < 2) {
+                        // Select up to 2 restaurants
+                        selectedRestaurants.push(restaurant.name);
+                        restDiv.classList.add('selected');
+                    }
+
+                    if (selectedRestaurants.length === 2) {
+                        // Redirect to final page once 2 restaurants are selected
+                        window.location.href = 'final.html';
+                    }
+                });
+
+                dataPanel.appendChild(restDiv);
+            });
+        }
+
+        // Render restaurants on page load
+        renderRestaurants();
+    </script>
+</body>
+</html>
