@@ -7,6 +7,7 @@ import Login_page from './Login_page';
 import Home_page from './Home_page';
 import Profile_page from './Profile_page';
 import Group_page from './Create_group';
+import GroupPage from './GroupPage';
 
 
 import Vote_join from './Vote_join';
@@ -28,6 +29,7 @@ const App = () => {
                     <Route path="/create_group" element={<Group_page/>} />
                     {/* <Route path="/group" element={<Group_page/>} />
                     <Route path="/user" element={<User_page/>} /> */}
+                    <Route path="/group/:groupId" element={<GroupPage />} />
 
 
                     {/* voting pages */}
