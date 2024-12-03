@@ -1,112 +1,100 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useSocket } from './SocketContext';
-
 import './styleFiles/Vote_start.css';
 
-import avatar1 from './assets/avatar1.png'
-import avatar2 from './assets/avatar2.png'
-import avatar3 from './assets/avatar3.png'
-import avatar4 from './assets/avatar4.png'
-const member = [
-  {name: 'noName', img: avatar1, status: 2},
-  {name: 'bigman', img: avatar2, status: 2},
-  {name: 'lil wayne', img: avatar3, status: 2},
-  {name: 'Mrpp', img: avatar4, status: 2},
+import avatar1 from './assets/avatar1.png';
+import avatar2 from './assets/avatar2.png';
+import avatar3 from './assets/avatar3.png';
+import avatar4 from './assets/avatar4.png';
 
-];
+// Default avatars for new users
+const defaultAvatars = [avatar1, avatar2, avatar3, avatar4];
 
-
-const Vote_start = ({Socket}) => {
+const Vote_start = () => {
   const navigate = useNavigate();
-  const [readyValue, setReadyValue] = useState(0); // 0-not ready, 1-ready, 2- not connected
-  const [members, setMember] = useState([member[Math.floor(Math.random()*4)],]);
-  const [trigger, setTrigger] = useState(false); //triggers rerender for update status
+  const [readyValue, setReadyValue] = useState(false); // false-not ready, true-ready
+  const [members, setMembers] = useState([]);
   const socket = useSocket();
 
-  const readyOrNot = () => {
-    // if(readyValue == 1){
-    //   setReadyValue(0);
-    //   member[0].status = 0;
-    // }else{
-    //   setReadyValue(1);
-    //   member[0].status = 1;
-    // }
-    members[0].status = !readyValue;
-    setReadyValue(!readyValue);
+  // Toggle readiness and check if all users are ready
+  const handleReadyToggle = () => {
+    const newReadyValue = !readyValue;
+    setReadyValue(newReadyValue);
+    console.log('button pressed');
 
-    if(members.every(m => m.status == 1))
+    socket.emit('update-status', { ready: newReadyValue });
+
+    if (members.every(member => member.status === true)) {
       navigate('/pref');
-
-  }
-
-  useEffect(() => {
-    if(socket)
-      socket.emit("start-page", members[0], (m) => console.log(m));      //join server for party
-  }, []) //remove [] for everytime it rerenders
-
-  useEffect(() => {
-    if(socket){
-      socket.on('new-user', (newU) => {
-        console.log('*********** adding new user ***********');
-        console.log('new user: ', newU);
-        // members.splice(members[0], 1);
-        setMember(m => [...m, newU]);          //receive new user
-      })
     }
-  },[])
+  };
+
+  // Initial data retrieval and user join
   useEffect(() => {
-    console.log('hello')
-      if(socket){
-        socket.on('update-status-broad', user => {
-          if(!user)
-            return;
+    const currUser = JSON.parse(localStorage.getItem('user'));
+    if (!currUser) return;
 
-          console.log('all members: ', members);
-          members.map(m => {
-              console.log('member: ',m, ' user: ', user);
+    // Add the current user to the local state
+    setMembers(prevMembers => [...prevMembers, { ...currUser, status: false }]);
 
-              if(m.name == user.name){
-                m.status = user.status;
-                setTrigger(!trigger);
-                console.log('status should be updated');
-              }
-          })
-        })
+    // Notify server about the new user
+    if (socket) {
+      socket.emit("join-party", currUser);
+    }
+  }, [socket]);
 
-      }
-  }, [socket, members])
+  // Listen for new users joining
+  useEffect(() => {
+    if (socket) {
+      socket.on('new-user', (newUsers) => {
+        console.log('Updated user list: ', newUsers);
+        setMembers(newUsers);
+      });
+
+      // Update status of other users
+      socket.on('update-status-broadcast', (updatedUser) => {
+        setMembers(prevMembers => 
+          prevMembers.map(member => 
+            member.name === updatedUser.name ? { ...member, status: updatedUser.status } : member
+          )
+        );
+      });
+    }
+  }, [socket]);
+
+  // console.log('members: ', members);
 
   return (
     <div className='start'>
       <div className='banner'>Voting Start</div>
       <h1>Party Rockin:</h1>
       <div className='party'>
-        {members.map((m) => (partyMember(m.name, m.img, m.status)))}
+        {members.map((member, index) => (
+          <PartyMember 
+            key={member.socket_id} 
+            name={member.name} 
+            avatarImg={member.img || defaultAvatars[index % defaultAvatars.length]} 
+            status={readyValue} 
+          />
+        ))}
       </div>
-      <button onClick={readyOrNot}>{!readyValue? "I'm Ready!" : "Not Ready"}</button>
+      <button onClick={handleReadyToggle}>
+        {readyValue ? "Not Ready" : "I'm Ready!"}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-
-const partyMember = (name, avatarImg, status) => {
-  let statusClass = 'status';
-  if(status==0) //not ready
-    statusClass = 'status status-notReady';
-  else if(status==1) //ready
-    statusClass = 'status status-ready';
-  else //disconnected - may not need
-    statusClass = 'status';
-    
-
-  return(
-    <div className='pm' key={name}>
-      <div className={statusClass}></div>
-      <img className='avatar' src={avatarImg}/>
+// Separate component for party members
+const PartyMember = ({ name, avatarImg, status }) => {
+  return (
+    <div className='pm'>
+      <div className={`status ${status ? 'status-ready' : 'status-notReady'}`}></div>
+      <img className='avatar' src={avatarImg} alt={`${name}'s avatar`} />
       <div className='username'>{name}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Vote_start
+export default Vote_start;

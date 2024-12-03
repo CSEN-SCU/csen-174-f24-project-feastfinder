@@ -21,6 +21,7 @@ const Vote_join = () => {
         console.log('socket data: ', data);
       });
     }
+    console.log('user info: ', localStorage.getItem('user'))
   });
 
   const meetingButton = () => {

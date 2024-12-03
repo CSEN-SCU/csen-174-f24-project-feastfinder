@@ -5,7 +5,7 @@ const fs = require('fs');
 const cors = require('cors');
 const express = require('express');
 
-// socket and server init
+/************************ socket and server init ************************/
 const app = express();
 const server = require('http').createServer(app);
 const options =  {
@@ -22,6 +22,7 @@ const PORT = 3000;
 const { getAuth } = require('firebase-admin/auth');
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
+const { count } = require('console');
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
@@ -31,6 +32,12 @@ admin.initializeApp({
 
 // Firestore initialization
 const db = admin.firestore();
+
+/************************ Global Variables ************************/
+
+const groupID = 121212; //rand generate group id and send to 
+const users = [];
+let currUser;
 
 /************************ SERVER ROUTES ************************/
 
@@ -46,29 +53,54 @@ app.get('/hi', (req, res) => {
   res.send({'serverRes':'hello'});
 })
 
-app.get('/profile', (req, res) => { //this route must come before /:groupID route otherwise it wont run
-  //fetch data from database
-  //format data
-  //send data
+app.get('/profile', async(req, res) => { //this route must come before /:groupID route otherwise it wont run
   console.log('PROFILE ROUTE HAS BEEN CALLLED RAHHHHH')
-  res.json({
-    "name": "John Doe",
-    "age": 30,
-    "description": "Food enthusiast and a world traveler.",
-    "picture": "https://example.com/path/to/profile-picture.jpg",
-    "preferences": ["Italian", "Chinese", "Mexican"],
-    "recent": ["Sushi", "Tacos", "Burger"],
-    "groups": [
-      {
-        "groupId": "12345",
-        "name": "Food Lovers"
-      },
-      {
-        "groupId": "67890",
-        "name": "Cuisine Explorers"
-      }
-    ]
-  });
+
+  //fetch data from database
+  console.log('User: ', currUser);
+
+  const user_profile_data = await db.collection('users').doc(currUser.uid).get();
+
+  console.log('user profile data: ', user_profile_data.data());
+  for(keys in user_profile_data)
+    console.log('user profile key: ', keys);
+
+  //format data
+  const resData = user_profile_data.data()
+  console.log('resUser data : ', resData);
+  //send data  
+  res.json(resData);
+})
+
+app.post('/loginData', (req, res) => {
+  console.log('user data: ', req.body);
+  currUser = req.body;
+  res.send({data: 'ack'});
+})
+
+//get resturant data
+app.get('/getRestData', (req, res) => {
+  const { longitude, latitude } = req.query;
+  // console.log('req data: ', longitude, ' , ', latitude);
+
+  const url = `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&sort_by=best_match&limit=20`;
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer fRRjPsm7vqVt3YL_Po5RdpuubNO05LyLg8_6JYRzHwWrSRvC5mFQzEJjXOjmBmwWZJR5Z_GQzOF9WEc57Co6n8dbPXmBZ8UTL27gHYkFw1TTdwBmkukPhBR5539LZ3Yx'
+    }
+  };
+
+  console.log('resturant names:')
+  fetch(url, options)
+    .then(res => res.json())
+    .then(json => {
+      json.businesses.forEach(r => console.log(r.name));
+    })
+    .catch(err => console.error(err));
+
+  res.send({});
 })
 
 // bad route - if placement is different it could skip a lot of other routes
@@ -90,40 +122,49 @@ app.get('/profile', (req, res) => { //this route must come before /:groupID rout
 // })
 
 // Route for Google login
-app.post('/login/google', async (req, res) => {
-  console.log('/login/google route called :)')
-  try {
-    const { idToken } = req.body;
-    if (!idToken) {
-      return res.status(400).json({ error: 'Missing ID token.' });
-    }
+// app.post('/login/google', async (req, res) => {
+//   console.log('/login/google route called :)')
+//   try {
+//     const { idToken } = req.body;
+//     if (!idToken) {
+//       return res.status(400).json({ error: 'Missing ID token.' });
+//     }
 
-    // Verify ID token with Firebase Admin SDK
-    const decodedToken = await getAuth().verifyIdToken(idToken);
-    const uid = decodedToken.uid;
+//     // Verify ID token with Firebase Admin SDK
+//     const decodedToken = await getAuth().verifyIdToken(idToken);
+//     const uid = decodedToken.uid;
 
-    // Store user data in Firestore
-    await db.collection('users').doc(uid).set(
-      {
-        uid,
-        name: decodedToken.name,
-        email: decodedToken.email,
-        lastLogin: new Date().toISOString()
-      },
-      { merge: true } // Merge with existing data if the user already exists
-    );
+//     currUser = {
+//       uid,
+//       name: decodedToken.name,
+//       email: decodedToken.email,
+//       lastLogin: new Date().toISOString()
+//     }
+//     console.log('user info check: ', currUser);
 
-    res.status(200).json({
-      message: "User signed in successfully",
-      user: { uid, name: decodedToken.name, email: decodedToken.email }
-    });
-  } catch (error) {
-    console.error("Login failed", error);
-    res.status(500).json({ error: "Login failed", details: error.message });
-  }
-});
+//     // Store user data in Firestore
+//     await db.collection('users').doc(uid).set(
+//       {
+//         uid,
+//         name: decodedToken.name,
+//         email: decodedToken.email,
+//         lastLogin: new Date().toISOString()
+//       },
+//       { merge: true } // Merge with existing data if the user already exists
+//     );
+
+//     res.status(200).json({
+//       message: "User signed in successfully",
+//       user: { uid, name: decodedToken.name, email: decodedToken.email }
+//     });
+//   } catch (error) {
+//     console.error("Login failed", error);
+//     res.status(500).json({ error: "Login failed", details: error.message });
+//   }
+// });
 
 // Create a new group
+
 app.post('/create-group', async (req, res) => {
   const { userId } = req.body;
   if (!userId) {
@@ -220,8 +261,6 @@ app.get('/group/:groupId', async (req, res) => {
 
 /************************ SERVER SOCKETS ************************/
 
-const groupID = 121212; //rand generate group id and send to 
-const users = [];
 io.on('connection', (socket) => {
 
     console.log('user connected :)');
@@ -231,13 +270,14 @@ io.on('connection', (socket) => {
 
     //start page
     console.log('************** start page sockets **************');
-    socket.on('start-page', (n, ack) => {
-        if(!users.some( u => u.name == n.name)){ //add new user if not already in
-            ack('user added');
+    socket.on('join-party', (n) => {
+      console.log('USER: ',n);
+        if(!users.some( u => u.email == n.email)){ //add new user if not already in
+            // ack('user added');
             users.push({'name': n.name, 'img': n.img, status: n.status, 'socket_id': socket.id, pref: []});
-            socket.broadcast.emit('new-user', n); //send new user to other sockets
-        }else
-            ack('ERROR: cannot add user');
+            // socket.broadcast.emit('new-user', n); //send new user to other sockets
+            socket.emit('new-user', users);
+        }
     })
     socket.on('update-status', (ustatus, ack) => { //username and status
         // console.log('mathcing user: ',users.findIndex( u => u.name == ustatus.name))
@@ -269,22 +309,21 @@ io.on('connection', (socket) => {
                 prefAdded = true;
             }
         })
-        // console.log('pref set', users);
-        // console.log('pref value: ',prefAdded);
-        // ack(prefAdded);
 
-        console.log('no users have length 0: ',users.some(u => u.pref.length != 0))
+        console.log('no users have prefs array length 0: ',users.some(u => u.pref.length != 0))
         if(users.some(u => u.pref.length != 0)) //if all users have pref set
             socket.emit('all-ready', {ready: true});
     })
 
     //voting page
         //generate resturant picks to send then send them
-    socket.on('generate-resturants', (d, ack) => {
+    socket.on('generate-resturants', async(location, ack) => {
       console.log('************** voting sockets **************');
-        if(d == 1){
+        if(location){
             ack('working')
-            socket.emit('rest-picks', curateResturants());
+            // ack(curateResturants(location.longitude, location.latitude));
+            console.log('sending resturant data');
+            socket.emit('rest-picks', await curateResturants(location.longitude, location.latitude));
         }else
             ack('ERROR!')
     })
@@ -313,30 +352,126 @@ io.on('connection', (socket) => {
     });
 });
 
-function curateResturants(){
-    //get all users top cuisine prefs
-    const cuisinePicks = [];
-    users.map((u) => {
-        //no dup cuisines?
-        console.log('pref: ', u.pref[0]);
-        cuisinePicks.push(u.pref[0]);
-        //cuisinePicks.push(u.pref['second']);
-    }) 
-    // console.log('cuisinePicks: ', cuisinePicks);
+function countOccurance(arr) {
+  const counts = {}
+  for(const name of arr)
+    counts[name] = counts[name] ? counts[name] + 1 : 1;
 
-    //randomly generate two resturants for each cuisine
-    const randRest = [];
-    cuisinePicks.map(c => {
-        const restData = JSON.parse(fs.readFileSync(`./restaurant_data/${c}_resturants.json`, { encoding: 'utf8', flag: 'r' }));
-        if(restData){ // console.log('rest data: ', restData[0]);
-            randRest.push(restData[0]);
-            randRest.push(restData[1]);
-        }
-    });
-
-    // console.log('randRest: ', randRest);
-    return randRest;
+  return counts;
 }
+async function curateResturants(longitude, latitude){
+  // console.log('longitude: ', longitude, ', latitude: ', latixtude);
+
+  //get all users top cuisine prefs
+  const cuisinePicks = [];
+  users.map((u) => {
+      //no dup cuisines?
+      for(const p of u.pref)
+        cuisinePicks.push(p.name);
+  }) 
+  console.log('cuisine: ',cuisinePicks);
+  const count = countOccurance(cuisinePicks);
+  console.log('counts: ', count);
+
+  //sort by descending
+  cuisinePicks.sort((a, b) => count[a] - count[b]);
+  console.log('sorted cuisine: ', cuisinePicks);
+
+  //randomly generate two resturants for top 3 cuisines
+  const urls = [
+    `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&term=${cuisinePicks[0]}&sort_by=best_match&limit=5`,
+    `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&term=${cuisinePicks[1]}&sort_by=best_match&limit=5`,
+    `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&term=${cuisinePicks[2]}&sort_by=best_match&limit=5`
+  ];
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer fRRjPsm7vqVt3YL_Po5RdpuubNO05LyLg8_6JYRzHwWrSRvC5mFQzEJjXOjmBmwWZJR5Z_GQzOF9WEc57Co6n8dbPXmBZ8UTL27gHYkFw1TTdwBmkukPhBR5539LZ3Yx'
+    }
+  };
+
+  console.log('check 1 !!!!');
+  const curatedRest = [];
+  // await Promise.all(urls.map((u) => fetch(u, options) ))
+  // .then(res => console.log(res.body))
+  // .then(data => {
+  //   curatedRest.push({ 
+  //     name: data.businesses[0].name,
+  //     img: data.businesses[0].image_url,
+  //     cuisine: data.businesses[0].categories[0].alias,
+  //     rating: data.businesses[0].rating,
+  //     review_count: data.businesses[0].review_count,
+  //     price: data.businesses[0].price,
+  //     distance: data.businesses[0].distance,
+  //     business_hours: data.businesses[0].business_hours
+  //   })
+  //   curatedRest.push({ 
+  //     name: data.businesses[1].name,
+  //     img: data.businesses[1].image_url,
+  //     cuisine: data.businesses[1].categories[0].alias,
+  //     rating: data.businesses[1].rating,
+  //     review_count: data.businesses[1].review_count,
+  //     price: data.businesses[1].price,
+  //     distance: data.businesses[1].distance,
+  //     business_hours: data.businesses[1].business_hours
+  //   });
+  // });
+
+  const fetchRes = await Promise.all(urls.map(u => fetch(u, options)));
+  const fetchData = await Promise.all(fetchRes.map(p => p.json()));
+  fetchData.map(d => {
+    curatedRest.push({ 
+      name: d.businesses[0].name,
+      img: d.businesses[0].image_url,
+      cuisine: d.businesses[0].categories[0].alias,
+      rating: d.businesses[0].rating,
+      review_count: d.businesses[0].review_count,
+      price: d.businesses[0].price,
+      distance: d.businesses[0].distance,
+      business_hours: d.businesses[0].business_hours
+    })
+    curatedRest.push({ 
+      name: d.businesses[1].name,
+      img: d.businesses[1].image_url,
+      cuisine: d.businesses[1].categories[0].alias,
+      rating: d.businesses[1].rating,
+      review_count: d.businesses[1].review_count,
+      price: d.businesses[1].price,
+      distance: d.businesses[1].distance,
+      business_hours: d.businesses[1].business_hours
+    })
+  })
+
+  console.log('curatedRest: ', curatedRest);
+
+  return curatedRest;
+}
+
+// function curateResturants(){
+//     //get all users top cuisine prefs
+//     const cuisinePicks = [];
+//     users.map((u) => {
+//         //no dup cuisines?
+//         console.log('pref: ', u.pref[0]);
+//         cuisinePicks.push(u.pref[0]);
+//         //cuisinePicks.push(u.pref['second']);
+//     }) 
+//     // console.log('cuisinePicks: ', cuisinePicks);
+
+//     //randomly generate two resturants for each cuisine
+//     const randRest = [];
+//     cuisinePicks.map(c => {
+//         const restData = JSON.parse(fs.readFileSync(`./restaurant_data/${c}_resturants.json`, { encoding: 'utf8', flag: 'r' }));
+//         if(restData){ // console.log('rest data: ', restData[0]);
+//             randRest.push(restData[0]);
+//             randRest.push(restData[1]);
+//         }
+//     });
+
+//     // console.log('randRest: ', randRest);
+//     return randRest;
+// }
     // [ {restName: 'freshfood', voteCount: 2 }, ... ]
 function top3picks(data){
     // not in proper format atm

@@ -4,7 +4,7 @@ import "./styleFiles/Profile_page.css"; // Separate CSS file for styles
 import avatar1 from './assets/avatar1.png';
 
 const Profile_page = () => {
-  const [profileData, setProfileData] = useState(null);
+  const [profileData, setProfileData] = useState({});
   const [error, setError] = useState(null);
 
   const apiUrl = "http://localhost:3000/profile"; // Replace with your API endpoint
@@ -19,6 +19,7 @@ const Profile_page = () => {
         }
 
         const data = await response.json();
+        // console.log('server response: ', data);
         setProfileData(data);
       } catch (err) {
         console.error("Error fetching profile data:", err);

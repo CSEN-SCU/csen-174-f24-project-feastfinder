@@ -54,7 +54,7 @@ body {
   cursor: pointer;
 }
 
-.restComp:hover {
+.restComp:hover, .selected{
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border-color: #4a90e2;

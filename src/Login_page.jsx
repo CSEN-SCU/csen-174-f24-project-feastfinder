@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import "./styleFiles/Login_page.css"; // Assuming CSS is moved to App.css
 
 // Firebase configuration
@@ -33,11 +33,40 @@ const Login_page = () => {
         name: user.displayName,
         email: user.email,
         picture: user.photoURL,
-      };
+        age: 30,
+        description: "Food enthusiast and a world traveler.",
+        preferences: ["Italian", "Chinese", "Mexican"],
+        recent: ["Sushi", "Tacos", "Burger"],
+        groups: [
+          { "groupId": "group-1731294464471", "name": "Nacho Problem" },
+          { "groupId": "group-1732055779679", "name": "Olive It" },
+          { "groupId": "group-1732575695862", "name": "Egg-cellent Crew" },
+        ]
+      }
       localStorage.setItem("user", JSON.stringify(userData));
+      console.log('local storage: ', localStorage.getItem('user'));
 
-      // Save user data to Firestore
-      await setDoc(doc(db, "users", user.uid), userData);
+      //check if user exists - to avoid overwriting data
+      const docSnap = await getDoc(doc(db, "users", user.uid));
+      if(docSnap.exists()){
+        // console.log("docsnap: ", docSnap);
+        console.log('existing user logged in');
+      }else{
+        console.log('save new user!');
+        // Save user data to Firestore
+        await setDoc(doc(db, "users", user.uid), userData);
+      }
+
+      //send data to route
+      const res = await fetch(`http://localhost:3000/loginData`, {
+        method: 'POST', 
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      }).then(res => res.json()).then(d => console.log('server response: ', d))
+      
 
       // Redirect or perform additional actions
       alert("Login successful!");
