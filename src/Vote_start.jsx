@@ -21,14 +21,31 @@ const Vote_start = () => {
   const handleReadyToggle = () => {
     const newReadyValue = !readyValue;
     setReadyValue(newReadyValue);
-    console.log('button pressed');
-
-    socket.emit('update-status', { ready: newReadyValue });
-
-    if (members.every(member => member.status === true)) {
+  
+    // Update the current user's status locally
+    setMembers(prevMembers => 
+      prevMembers.map(member => 
+        member.name === localStorage.getItem('name') ? { ...member, status: newReadyValue } : member
+      )
+    );
+  
+    console.log('Ready status updated:', newReadyValue);
+  
+    // Emit the status change to the server
+    socket.emit('update-status', { name: localStorage.getItem('name'), ready: newReadyValue });
+  
+    // Check if all members are ready
+    const allReady = members.every(member => member.status || member.name === localStorage.getItem('name') && newReadyValue);
+    if (allReady) {
       navigate('/pref');
     }
   };
+  
+
+  useEffect(() => {
+    if(readyValue)
+        navigate('/pref');
+  })
 
   // Initial data retrieval and user join
   useEffect(() => {
