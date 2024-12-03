@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styleFiles/Create_group.css"; // Ensure the CSS file is linked properly
 
-const Group_page = () => {
+const Create_group = () => {
   const navigate = useNavigate();
 
   // Function to create a group and navigate to the Vote_join page
@@ -63,4 +63,4 @@ const Group_page = () => {
   );
 };
 
-export default Group_page;
+export default Create_group;

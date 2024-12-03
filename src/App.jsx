@@ -6,7 +6,7 @@ import { SocketProvider } from './SocketContext';
 import Login_page from './Login_page';
 import Home_page from './Home_page';
 import Profile_page from './Profile_page';
-import Group_page from './Create_group';
+import Create_group from './Create_group';
 import GroupPage from './GroupPage';
 
 
@@ -26,13 +26,13 @@ const App = () => {
                     <Route path="/" element={<Login_page/>} />
                     <Route path="/home" element={<Home_page/>} />
                     <Route path="/profile" element={<Profile_page/>} />
-                    <Route path="/create_group" element={<Group_page/>} />
-                    {/* <Route path="/group" element={<Group_page/>} />
+                    {/*<Route path="/group" element={<Group_page/>} />
                     <Route path="/user" element={<User_page/>} /> */}
                     <Route path="/group/:groupId" element={<GroupPage />} />
 
 
                     {/* voting pages */}
+                    <Route path="/create" element={<Create_group/>} />
                     <Route path="/join" element={<Vote_join/>} />
                     <Route path="/start" element={<Vote_start/>} />
                     <Route path="/pref" element={<Vote_pref />} />
