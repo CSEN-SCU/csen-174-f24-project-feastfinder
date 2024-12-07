@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate }  from "react-router-dom";
 import "./styleFiles/Profile_page.css"; // Separate CSS file for styles
 
 import avatar1 from './assets/avatar1.png';
@@ -6,20 +7,22 @@ import avatar1 from './assets/avatar1.png';
 const Profile_page = () => {
   const [profileData, setProfileData] = useState({});
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const apiUrl = "http://localhost:3000/profile"; // Replace with your API endpoint
 
   useEffect(() => {
+    console.log(profileData)
     const fetchProfileData = async () => {
       try {
         const response = await fetch(apiUrl);
-        console.log('res: ', response);
+        console.log('Response: ', response);
         if (!response.ok) {
           throw new Error("Failed to fetch profile data");
         }
 
         const data = await response.json();
-        // console.log('server response: ', data);
+        console.log('server response: ', data);
         setProfileData(data);
       } catch (err) {
         console.error("Error fetching profile data:", err);
@@ -38,15 +41,11 @@ const Profile_page = () => {
     return <div className="loading">Loading...</div>;
   }
 
-  const groupHandler = async(groupId) => {
-    //check if groupId in firebase
-    const res = await fetch(`http://localhost:3000/group/${groupId}`);
-    console.log(res)
-    if(res.status != 200)
-        alert('no group w/ that ID in database')
-    else
-        window.location.href = "/group";
-  }
+  const groups = profileData.groups || [];
+
+  const groupHandler = (groupId) => {
+    navigate(`/group/${groupId}`)
+  };
 
   return (
     <div className="profile-container">
@@ -56,7 +55,8 @@ const Profile_page = () => {
         <div
           className="profile-picture"
           style={{
-            backgroundImage: `url(${avatar1 || "https://via.placeholder.com/200"})`,
+            //backgroundImage: `url(${avatar1 || "https://via.placeholder.com/200"})`,
+            backgroundImage: `url(${profileData.picture})`, //can change back
           }}
         />
         <div className="user-details">
@@ -96,18 +96,20 @@ const Profile_page = () => {
       <div className="section">
         <h3>Groups</h3>
         <ul className="groups-list">
-          {profileData.groups?.length ? (
-            profileData.groups.map((group) => (
-              <li key={group.groupId}>
-                <a
-                //   href={`group.html?groupId=${group.groupId}`}
-                onClick={() => groupHandler(group.groupId)}
-                  className="group-link"
-                >
-                  {group.name}
-                </a>
-              </li>
-            ))
+          {groups?.length ? (
+            groups.map((group, index) => {
+              console.log('Group Data:', group);
+              return (
+                <li key={group.groupId || index}>
+                  <a
+                    onClick={() => groupHandler(group.groupId)}
+                    className="group-link"
+                  >
+                    {group.groupId}
+                  </a>
+                </li>
+              );
+            }) 
           ) : (
             <li>No groups found</li>
           )}

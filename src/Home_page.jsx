@@ -23,7 +23,7 @@ const Home_page = () => {
       <h1>Welcome to Feast Finder</h1>
       <button
         className="button"
-        onClick={() => handleNavigation("/join")} // Replace with the voting route
+        onClick={() => handleNavigation("/create")} // Replace with the voting route
       >
         Go to Voting
       </button>

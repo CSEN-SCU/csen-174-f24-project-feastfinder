@@ -54,23 +54,50 @@ app.get('/hi', (req, res) => {
 })
 
 app.get('/profile', async(req, res) => { //this route must come before /:groupID route otherwise it wont run
-  console.log('PROFILE ROUTE HAS BEEN CALLLED RAHHHHH')
-
-  //fetch data from database
   console.log('User: ', currUser);
 
   const user_profile_data = await db.collection('users').doc(currUser.uid).get();
+  
+  if (!user_profile_data.exists) {
+    return res.status(404).json({ error: 'User not found'});
+  }
 
-  console.log('user profile data: ', user_profile_data.data());
-  for(keys in user_profile_data)
-    console.log('user profile key: ', keys);
+  const userData = user_profile_data.data();
+  console.log('User profile data: ', userData);
 
-  //format data
-  const resData = user_profile_data.data()
-  console.log('resUser data : ', resData);
-  //send data  
-  res.json(resData);
+  const groupsRef = db.collection('groups');
+  const groupSnapshot = await groupsRef.where('members', 'array-contains', currUser.uid).get();
+
+  const groups = groupSnapshot.docs.map(doc => doc.data());
+
+  const profileData = {
+    ...userData,
+    groups: groups,
+  };
+
+  console.log('Profile data to send: ', profileData);
+
+  // Send response with profile data including groups
+  res.json(profileData);
 })
+  
+  // console.log('PROFILE ROUTE HAS BEEN CALLLED RAHHHHH')
+
+  // //fetch data from database
+  // console.log('User: ', currUser);
+
+  // const user_profile_data = await db.collection('users').doc(currUser.uid).get();
+
+  // console.log('user profile data: ', user_profile_data.data());
+  // for(keys in user_profile_data)
+  //   console.log('user profile key: ', keys);
+
+  // //format data
+  // const resData = user_profile_data.data()
+  // console.log('resUser data : ', resData);
+  // //send data  
+  // res.json(resData);
+//})
 
 app.post('/loginData', (req, res) => {
   console.log('user data: ', req.body);
