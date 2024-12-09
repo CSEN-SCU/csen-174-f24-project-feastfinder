@@ -303,7 +303,8 @@ io.on('connection', (socket) => {
             // ack('user added');
             users.push({'name': n.name, 'img': n.img, status: n.status, 'socket_id': socket.id, pref: []});
             // socket.broadcast.emit('new-user', n); //send new user to other sockets
-            socket.broadcast.emit('new-user', users);
+            console.log('Updated users list: ', users);
+            io.emit('new-user', users);
         }
     })
     socket.on('update-status', (ustatus, ack) => { //username and status
