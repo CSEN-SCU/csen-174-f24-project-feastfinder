@@ -61,9 +61,6 @@ const Profile_page = () => {
         />
         <div className="user-details">
           <strong>Name:</strong> {profileData.name || "Unknown"} <br />
-          <strong>Age:</strong> {profileData.age || "Unknown"} <br />
-          <strong>Description:</strong>
-          <p>{profileData.description || "No description available."}</p>
         </div>
       </div>
 

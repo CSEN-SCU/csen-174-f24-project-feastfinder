@@ -45,21 +45,6 @@ const GroupPage = () => {
       <div className="group-header">
         {groupData ? `Group: ${groupData.groupId}` : "Group Name"}
       </div>
-      <div
-        className="group-pic"
-        style={{
-          width: "100%",
-          height: "200px",
-          backgroundColor: "#ddd",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "1.2em",
-          color: "#555",
-        }}
-      >
-        Group Picture
-      </div>
       <div className="members-list">
         {groupData.members.map((member) => (
           <div
