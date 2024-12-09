@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import "./styleFiles/Login_page.css"; // Assuming CSS is moved to App.css
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -69,15 +71,21 @@ const Login_page = () => {
       
 
       // Redirect or perform additional actions
-      alert("Login successful!");
-      window.location.href = "/home";
+      toast.success("Login successful!");
+      setTimeout(() => {
+        window.location.href = "/home";
+      }, 3000); // Delay redirection for 3 seconds
+
     } catch (error) {
       console.error("Error during Google sign-in:", error.message);
+      toast.error("Login failed. Please try again.");
+
     }
   };
 
   return (
     <div className="container">
+      <ToastContainer position="bottom-right" autoClose={3000} />
       <h1>Welcome to Feast Finder</h1>
       <button className="button" onClick={handleGoogleLogin}>
         {/* <img

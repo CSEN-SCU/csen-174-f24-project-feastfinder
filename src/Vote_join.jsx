@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useSocket } from './SocketContext';
 import './styleFiles/Vote_join.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Vote_join = () => {
   const [inputValue, setInputValue] = useState('');
@@ -28,12 +30,12 @@ const Vote_join = () => {
     const userId = user?.uid;
 
     if (!userId) {
-      alert("User ID not found. Please log in again.");
+      toast.error("User ID not found. Please log in again.");
       return;
     }
 
     if(!inputValue) {
-      alert("Please enter a Group ID");
+      toast.error("Please enter a Group ID.");
       return;
     }
 
@@ -51,18 +53,21 @@ const Vote_join = () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert('Joined group successfully!');
-        navigate('/start');
+        toast.success("Joined group successfully!");
+        setTimeout(() => {
+          navigate("/start");
+        }, 3000); // Delay navigation for 3 seconds
       } else {
         alert(`Error: ${data.error}`);
       } 
     } catch (error) {
         console.error('Error joining group:', error);
-        alert('Failed to join group.');
+        toast.error("Failed to join group.");
       } 
   };
   return (
     <div className='join'>
+      <ToastContainer position="bottom-right" autoClose={3000} />
       <div className='banner'>Voting Join</div>
       <div className='meetingDiv'>
         <label> Meeting ID </label>
