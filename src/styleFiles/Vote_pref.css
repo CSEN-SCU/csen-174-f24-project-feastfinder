@@ -1,0 +1,137 @@
+/* General Styling */
+/* 
+  #root{
+    position: absolute;
+    top: 0;
+  } */
+  /* Main Container */
+  .pref {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Banner */
+  .banner {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Top 3 Picks */
+  .top3 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0px;
+  }
+  
+  .restItem {
+    text-align: center;
+    margin: 10px;
+    flex: 1;
+  }
+  
+  .imgCircle-sm {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .restItem h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .restItem h3 {
+    font-size: 1em;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  /* Restaurant Choices */
+  /* redesign */
+  .card{
+    width: 250px;
+    height: 300px;
+    border-radius: 5%;
+  }
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  } 
+  .card:hover:not(h3){
+    /* filter: blur(1px); blur affects text when it shouldn't */
+    width: 280px;
+    height: 320px;
+  }
+
+  /* Button */
+  button {
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #357ab7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .top3, .choices {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .imgCircle {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .imgCircle-sm {
+      width: 70px;
+      height: 70px;
+    }
+  
+    button {
+      font-size: 0.9em;
+      padding: 10px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .imgCircle {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .imgCircle-sm {
+      width: 60px;
+      height: 60px;
+    }
+  
+    button {
+      font-size: 0.8em;
+      padding: 8px 15px;
+    }
+  }

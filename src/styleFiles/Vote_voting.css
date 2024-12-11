@@ -1,0 +1,122 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 400px; /* Adjusted for more space at the top */
+}
+
+/* Main Container */
+.voting {
+  width: fit-content;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Banner */
+.banner-s {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #4a90e2;
+  margin-top: 200px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Data Panel */
+.dataPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Restaurant Card */
+.restComp {
+  width: 280px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.restComp:hover, .selected{
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: #4a90e2;
+}
+
+.compImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.restComp div {
+  padding: 5px 15px;
+}
+
+.restComp h1 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.restComp h2 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #666;
+}
+
+.restComp h4 {
+  font-size: 1em;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dataPanel {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .restComp {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .compImg {
+      height: 150px;
+  }
+
+  .restComp h1 {
+      font-size: 1.2em;
+  }
+
+  .restComp h2 {
+      font-size: 1em;
+  }
+
+  .restComp h4 {
+      font-size: 0.9em;
+  }
+}

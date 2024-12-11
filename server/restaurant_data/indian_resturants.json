@@ -1,0 +1,142 @@
+[
+  {
+    "businessName": "The Table",
+    "price": "$$",
+    "address": "1110 Willow St",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/HUCmIVeNjEOJCps4fR-LOQ/o.jpg"
+  },
+  {
+    "businessName": "King's Fish House - San Jose",
+    "price": "$$$",
+    "address": "2855 Stevens Creek Blvd",
+    "rating": 4.2,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/CwJIeZ4L_JWpSdpokmOzpg/o.jpg"
+  },
+  {
+    "businessName": "LUNA Mexican Kitchen - The Alameda",
+    "price": "$$",
+    "address": "1495 The Alameda",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/JjzG0auXHdUing7hHn7keQ/o.jpg"
+  },
+  {
+    "businessName": "Paper Plane",
+    "price": "$$",
+    "address": "72 S 1st St",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/CEzLkgkl5Tq3wynCVNGVXw/o.jpg"
+  },
+  {
+    "businessName": "Firehouse No.1 Gastropub",
+    "price": "$$$",
+    "address": "69 N San Pedro St",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/DZuE_RmnZ75_7RhNX2UCiA/o.jpg"
+  },
+  {
+    "businessName": "Black Sheep Brasserie",
+    "price": "$$$",
+    "address": "1202 Lincoln Ave",
+    "rating": 3.8,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/dLAh6wG4TeNHbJueQ9J0Lw/o.jpg"
+  },
+  {
+    "businessName": "Orchard City Kitchen",
+    "price": "$$",
+    "address": "1875 S Bascom Ave",
+    "rating": 4,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/BLqbvUNV1yZ123IOAGZFdw/o.jpg"
+  },
+  {
+    "businessName": "Jackie's Place",
+    "price": "$$",
+    "address": "840 North 1st St",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/HAGJsU8qOir5qvMjr8vO3Q/o.jpg"
+  },
+  {
+    "businessName": "Paesano Ristorante Italiano",
+    "price": "$$",
+    "address": "350 W Julian St",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/oDYRK0KAZ7Le47ZhDDt0ag/o.jpg"
+  },
+  {
+    "businessName": "Gen Korean BBQ House",
+    "price": "$$",
+    "address": "1628 Hostetter Rd",
+    "rating": 4.2,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/PjnpdWprvYciexvMbmrIHw/o.jpg"
+  },
+  {
+    "businessName": "Mariscos Costa Alegre",
+    "price": "$$",
+    "address": "855 N 13th St",
+    "rating": 4.6,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/kEJYTWSoboPibwp9a1PuTw/o.jpg"
+  },
+  {
+    "businessName": "The Funny Farm",
+    "price": "$$",
+    "address": "4898 San Felipe Rd",
+    "rating": 4.5,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/znmTYAaJc3HXHR51JCe7Qw/o.jpg"
+  },
+  {
+    "businessName": "The Grandview Restaurant",
+    "price": "$$$$",
+    "address": "15005 Mount Hamilton Rd",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/gsy_3gmpd7f_Y-Rey8RAbw/o.jpg"
+  },
+  {
+    "businessName": "Fogo De Chao",
+    "price": "$$$",
+    "address": "377 Santana Row",
+    "rating": 4.1,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/_OJy_PtmAnw8gmwP1o6BnA/o.jpg"
+  },
+  {
+    "businessName": "Mizu Sushi Bar & Grill",
+    "price": "$$$",
+    "address": "1035 S Winchester Blvd",
+    "rating": 3.9,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/nvj_LEnUxrc39HCRexva0A/o.jpg"
+  },
+  {
+    "businessName": "Cha Cha Sushi",
+    "price": "$$",
+    "address": "547 W Capitol Expy",
+    "rating": 4,
+    "imageUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/aFHl68Bsr8HA86AGPJJGqw/o.jpg"
+  },
+  {
+    "businessName": "Élyse Restaurant",
+    "price": "$$",
+    "address": "96 S 1st St",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/-ryDQxwnP0xogwMN1C89Hg/o.jpg"
+  },
+  {
+    "businessName": "Goodtime Bar",
+    "price": "$$",
+    "address": "30 Fountain Alley",
+    "rating": 4.8,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/lEEjBtL6qaBCYS_BC2CrnA/o.jpg"
+  },
+  {
+    "businessName": "Añejo Cantina & Kitchen",
+    "price": "$$",
+    "address": "3132 Williams Rd",
+    "rating": 4.4,
+    "imageUrl": "https://s3-media1.fl.yelpcdn.com/bphoto/Xwvvk5Mni3QsEmsXGZcRkw/o.jpg"
+  },
+  {
+    "businessName": "Claw Shack",
+    "price": "$$",
+    "address": "1696 Berryessa Rd",
+    "rating": 4.3,
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/EABpne7xI_vELR40Hyc_hQ/o.jpg"
+  }
+]
