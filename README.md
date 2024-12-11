@@ -10,6 +10,10 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh -->
 
+# most issues resolved only minor issues to solve now
+
+
+
 ## TO DO: Nov 19th 2pm
 - presist data for fetching and loading
     - getting proper group id and loading it on page
@@ -23,4 +27,3 @@ Currently, two official plugins are available:
 - add ons:
     - clicking on one of the resturants in final results loads google maps directions?
     - better looking UI?
->>>>>>> 6eaea62 (most issues resolved only minor issues to solve now)
