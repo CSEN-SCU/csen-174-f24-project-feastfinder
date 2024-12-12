@@ -21,8 +21,10 @@ const Vote_join = () => {
         console.log(socket.id); 
       });
       socket.on('receiveGroup', (data) => {
+        console.log('data: ', data);
         if(data !== null){
           setGroupID(data);
+          setInputValue(data);
           sessionStorage.setItem('groupId', data);
         }
         console.log('socket data: ', data);
@@ -54,7 +56,7 @@ const Vote_join = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          userId,
+          userId: userId,
           groupId: inputValue,
         }),
       });

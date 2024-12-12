@@ -15,9 +15,9 @@ const Vote_final = () => {
     // Listen for 'vote-results' event from the server
     socket.on('vote-results', (data) => {
       console.log(data)
-      const hold = Object.keys(data);
-      console.log('keys: ', hold, ' key length: ', hold.length);
-      setKeyRes(Object.keys(data));
+      // const hold = Object.keys(data);
+      // console.log('keys: ', hold, ' key length: ', hold.length);
+      // setKeyRes(Object.keys(data));
       setResults(data);
     });
     // Handle errors
@@ -33,15 +33,15 @@ const Vote_final = () => {
   return (
     <div className="vote-final">
       <h1>Top 3 Restaurant Picks</h1>
-      {keyRes.length > 0 ? (
+      {results.length > 0 ? (
         <div className="results">
-          {keyRes.map((restName, index) => {
+          {results.map((r, index) => {
             if(index >= 3)
                 return
             return(
-              <div className="result-card" key={index}>
-                <h2>{index + 1}. {restName}</h2>
-                <p>Votes: {results[restName]}</p>
+              <div className="result-card" key={r.name+index}>
+                <h2>{index + 1}. {r.name}</h2>
+                <p>Votes: {r.count}</p>
               </div>
           )})}
         </div>

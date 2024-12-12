@@ -38,6 +38,7 @@ const db = admin.firestore();
 let GROUP_ID; //rand generate group id and send to 
 const users = [];
 const votePreResults = [];
+const voteRegister = []; 
 
 // Middleware for CORS and parsing JSON
 app.use(cors());
@@ -203,9 +204,10 @@ io.on('connection', (socket) => {
   //join page
   socket.on('created-groupID', (id) => { //GET GROUP ID FROM user that created group
     GROUP_ID = id;
+    io.emit('receiveGroup', GROUP_ID); //send to all users
+    console.log('group id sent!');
   })
-  io.emit('receiveGroup', (GROUP_ID || 'group-1733886926702')); //send to all users
-  console.log('group id sent!');
+
 
   //start page
   socket.on('join-party', (n, ack) => {
@@ -274,6 +276,7 @@ io.on('connection', (socket) => {
   //calc top pick resturants for group then send //send data from client to server in format: // {restName: 'freshfood', voteCount: 2 }
   socket.on('is-vote-done', (data, ack) => { //find a way to actually count the people who voted  
     data.map(d => votePreResults.push(d));
+    voteRegister.push(socket.id);
     console.log('vote preResults: ', votePreResults);  
     console.log('vote pre results length: ', votePreResults.length);
     console.log('user length: ', users.length);
@@ -284,6 +287,10 @@ io.on('connection', (socket) => {
         if(results){
             ack('working');
             console.log('Results: ', results);
+
+            //erase vote pre results 
+            votePreResults.splice(0, votePreResults.length);
+            
             io.emit('vote-results', results); //to send emits to all users use io.emit
         }else
             ack('ERROR!');
@@ -294,10 +301,16 @@ io.on('connection', (socket) => {
 
 
   socket.on('disconnect', () => {
-      var index = users.find(u => u.socket_id == socket.id);
-      // console.log('index: ', index);
-      if(index != -1)
-          users.splice(index, 1);
+      let user_index = users.find(u => u.socket_id === socket.id);
+      //remove user on disconnect
+      if(user_index !== -1)
+          users.splice(user_index, 1);
+      
+      //remove user vote
+      let vote_index = voteRegister.find(u => u.socket_id === socket.id)
+      if(vote_index !== -1)
+        voteRegister.splice(vote_index, 3);
+
       console.log('user disconnected :(');
   });
 });

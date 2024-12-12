@@ -7,7 +7,7 @@ const Create_group = () => {
 
   // Function to create a group and navigate to the Vote_join page
   const handleCreateGroup = async () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(sessionStorage.getItem("user"));
     const userId = user ? user.uid : null;
 
     if (!userId) {
