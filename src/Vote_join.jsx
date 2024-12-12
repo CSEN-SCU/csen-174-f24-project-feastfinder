@@ -31,7 +31,7 @@ const Vote_join = () => {
         console.log('group id: ', sessionStorage.getItem('groupId'));
       });
     }
-    console.log('user info from local storage:', sessionStorage.getItem('user'));
+    console.log('user info from session storage:', sessionStorage.getItem('user'));
   }, [socket]);
 
   const joinGroup = async () => {
@@ -62,6 +62,7 @@ const Vote_join = () => {
       });
 
       const data = await response.json();
+      console.log('server res:', data);
       if (response.ok) {
         toast.success("Joined group successfully!");
         setTimeout(() => {

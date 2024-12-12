@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate }  from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styleFiles/Profile_page.css"; // Separate CSS file for styles
 
 import avatar1 from './assets/avatar1.png';
@@ -7,7 +7,6 @@ import avatar2 from './assets/avatar2.png';
 import avatar3 from './assets/avatar3.png';
 import avatar4 from './assets/avatar4.png';
 const avatars = [avatar1, avatar2, avatar3, avatar4];
-
 
 const Profile_page = () => {
   const [profileData, setProfileData] = useState({});
@@ -19,7 +18,7 @@ const Profile_page = () => {
     const fetchProfileData = async () => {
       try {
         const user = JSON.parse(sessionStorage.getItem('user'));
-        const response = await fetch(`http://localhost:3000/profile?id=${user.uid}`);//&email=${user.email}`);
+        const response = await fetch(`http://localhost:3000/profile?id=${user.uid}`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch profile data");
@@ -60,38 +59,12 @@ const Profile_page = () => {
         <div
           className="profile-picture"
           style={{
-            //backgroundImage: `url(${avatar1 || "https://via.placeholder.com/200"})`,
-            backgroundImage: `url(${profileData.picture })`, //|| avatars[Math.floor(Math.random()*4)]})`, 
+            backgroundImage: `url(${profileData.picture})`,
           }}
         />
         <div className="user-details">
           <strong>Name: </strong> &nbsp; {profileData.name || "Unknown"} <br />
         </div>
-      </div>
-
-      {/* Preferences Section */}
-      <div className="section">
-        <h3>Preferences</h3>
-        <h4>Top 3 Food Types:</h4>
-        <ul className="preferences-list">
-          {profileData.preferences?.length ? (
-            profileData.preferences.map((pref, index) => (
-              <li key={index}>{pref}</li>
-            ))
-          ) : (
-            <li>No preferences available</li>
-          )}
-        </ul>
-        <h4>Recent:</h4>
-        <ul className="preferences-list">
-          {profileData.recent?.length ? (
-            profileData.recent.map((recent, index) => (
-              <li key={index}>{recent}</li>
-            ))
-          ) : (
-            <li>No recent activity</li>
-          )}
-        </ul>
       </div>
 
       {/* Groups Section */}
