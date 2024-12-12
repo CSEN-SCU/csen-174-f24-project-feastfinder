@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.vote-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #90caf9; /* Soft blue for headings */
+    margin-bottom: 20px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.result-card {
+    padding: 20px;
+    border: 1px solid #333; /* Subtle border */
+    border-radius: 8px;
+    background-color: #1e1e1e; /* Dark card background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Softer shadow */
+    text-align: center;
+}
+
+.result-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #e0e0e0; /* Light text for headings */
+}
+
+.result-card p {
+    font-size: 1.2em;
+    color: #a0a0a0; /* Muted text for paragraphs */
+}
+
+.error {
+    color: #ef5350; /* Soft red for errors */
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}

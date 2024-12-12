@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #1e1e1e; /* Slightly lighter dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Adjust shadow for dark theme */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* White text for headers */
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #1a73e8; /* Adjusted blue for dark mode */
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: #155db8; /* Darker blue for hover effect */
+}
